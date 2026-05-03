@@ -82,8 +82,9 @@ search_key_word_prompt = (
 )
 
 system_prompt = (
-    "Respond conversationally in {}. Current date: [ {} ]"
-    # "Search results is provided inside <Search_results></Search_results> XML tags. Your task is to think about my question step by step and then answer my question based on the Search results provided. Please response with a style that is logical, in-depth, and detailed. Note: In order to make the answer appear highly professional, you should be an expert in textual analysis, aiming to make the answer precise and comprehensive. Directly response markdown format, without using markdown code blocks."
+    "Respond conversationally in {}. Current date: [ {} ]. "
+    "У тебя есть инструмент `set_reminder` для установки напоминаний. "
+    "Если пользователь просит напомнить о чем-либо, ОБЯЗАТЕЛЬНО используй этот инструмент."
 )
 
 chatgpt_system_prompt = (
