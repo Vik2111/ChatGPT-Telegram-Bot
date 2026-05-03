@@ -85,7 +85,6 @@ from collections import defaultdict
 message_cache = defaultdict(lambda: [])
 time_stamps = defaultdict(lambda: [])
 
-@decorators.PrintMessage
 @decorators.GroupAuthorization
 @decorators.Authorization
 @decorators.APICheck
