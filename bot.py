@@ -85,22 +85,11 @@ from collections import defaultdict
 message_cache = defaultdict(lambda: [])
 time_stamps = defaultdict(lambda: [])
 
-async def ping(update, context):
-    print("DEBUG: /ping command received", flush=True)
-    await update.message.reply_text("ПОНГ! Связь с Telegram работает. Если ИИ молчит, значит проблема в API_KEY.")
-
 @decorators.PrintMessage
 @decorators.GroupAuthorization
 @decorators.Authorization
 @decorators.APICheck
 async def command_bot(update, context, title="", has_command=True):
-    print(f"DEBUG: command_bot called for user {update.effective_user.id if update.effective_user else 'unknown'}", flush=True)
-    # Тестовый ответ для проверки связи
-    try:
-        await context.bot.send_message(chat_id=update.effective_chat.id, text="Сообщение получено, начинаю обработку...")
-    except Exception as e:
-        print(f"DEBUG: Failed to send test message: {e}", flush=True)
-
     stop_event.clear()
     message, rawtext, image_url, chatid, messageid, reply_to_message_text, update_message, message_thread_id, convo_id, file_url, reply_to_message_file_content, voice_text = await GetMesageInfo(update, context)
 
@@ -925,18 +914,15 @@ def telegram_webhook():
 
     try:
         data = request.get_json(force=True)
-        update_id = data.get('update_id')
-        print(f"DEBUG: Incoming update received: {update_id}", flush=True)
         update = Update.de_json(data, application.bot)
         
         def handle_result(task):
             try:
                 task.result()
             except Exception as e:
-                print(f"DEBUG: Error in background task: {e}", flush=True)
+                print(f"Error in background task: {e}", flush=True)
                 traceback.print_exc()
 
-        # Передаем обновление в фоновый поток с отслеживанием ошибок
         def schedule():
             task = asyncio.create_task(application.process_update(update))
             task.add_done_callback(handle_result)
@@ -945,7 +931,7 @@ def telegram_webhook():
         
         return "OK", 200
     except Exception as e:
-        print(f"DEBUG: Webhook processing error: {e}", flush=True)
+        print(f"Webhook processing error: {e}", flush=True)
         return "Error", 500
 
 # Flask routes restored for UptimeRobot support
@@ -972,8 +958,7 @@ if __name__ == '__main__':
     )
 
     application.add_handler(CommandHandler("info", info))
-    application.add_handler(CommandHandler("ping", ping))
-    application.add_handler(CommandHandler("start", command_bot))
+    application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("reset", reset_chat))
     application.add_handler(CommandHandler("model", change_model))
     application.add_handler(InlineQueryHandler(inlinequery))
