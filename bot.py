@@ -55,6 +55,7 @@ time_out = 600
 
 flask_app = Flask(__name__)
 application = None
+main_loop = None
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger()
@@ -922,6 +923,30 @@ def telegram_webhook():
     except Exception as e:
         logger.exception("Webhook processing error: %s", e)
         return "Error", 500
+@flask_app.get("/")
+def health():
+    return "OK", 200
+
+
+@flask_app.post("/webhook")
+def telegram_webhook():
+    global application, main_loop
+
+    if application is None or main_loop is None:
+        return "Application not ready", 503
+
+    try:
+        data = request.get_json(force=True)
+        update = Update.de_json(data, application.bot)
+        future = asyncio.run_coroutine_threadsafe(
+            application.process_update(update),
+            main_loop
+        )
+        future.result(timeout=30)
+        return "OK", 200
+    except Exception as e:
+        logger.exception("Webhook processing error: %s", e)
+        return "Error", 500
         
 if __name__ == '__main__':
     application = (
@@ -939,6 +964,7 @@ if __name__ == '__main__':
         .get_updates_connect_timeout(time_out)
         .get_updates_pool_timeout(time_out)
         .rate_limiter(AIORateLimiter(max_retries=5))
+        .updater(None)
         .post_init(post_init)
         .build()
     )
@@ -983,7 +1009,13 @@ if __name__ == '__main__':
     application.add_handler(MessageHandler(filters.COMMAND, unknown))
     application.add_error_handler(error)
 
+    main_loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(main_loop)
+
+    main_loop.run_until_complete(application.initialize())
+    main_loop.run_until_complete(application.start())
+
     print("WEB_HOOK:", WEB_HOOK)
-    print("PORT:", PORT)
+    print("PORT:", os.getenv("PORT", PORT))
 
     flask_app.run(host="0.0.0.0", port=int(os.getenv("PORT", PORT)))
