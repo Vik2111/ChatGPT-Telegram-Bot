@@ -85,6 +85,10 @@ from collections import defaultdict
 message_cache = defaultdict(lambda: [])
 time_stamps = defaultdict(lambda: [])
 
+async def ping(update, context):
+    print("DEBUG: /ping command received", flush=True)
+    await update.message.reply_text("ПОНГ! Связь с Telegram работает. Если ИИ молчит, значит проблема в API_KEY.")
+
 @decorators.PrintMessage
 @decorators.GroupAuthorization
 @decorators.Authorization
@@ -968,7 +972,8 @@ if __name__ == '__main__':
     )
 
     application.add_handler(CommandHandler("info", info))
-    application.add_handler(CommandHandler("start", start))
+    application.add_handler(CommandHandler("ping", ping))
+    application.add_handler(CommandHandler("start", command_bot))
     application.add_handler(CommandHandler("reset", reset_chat))
     application.add_handler(CommandHandler("model", change_model))
     application.add_handler(InlineQueryHandler(inlinequery))
