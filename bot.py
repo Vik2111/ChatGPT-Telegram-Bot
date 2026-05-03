@@ -12,7 +12,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from utils import globals
 
 # Initialize scheduler
-scheduler = AsyncIOScheduler()
+scheduler = AsyncIOScheduler(timezone='Europe/Kyiv')
 globals.scheduler = scheduler
 
 import utils.decorators as decorators
@@ -967,9 +967,8 @@ if __name__ == '__main__':
         .build()
     )
 
-    # Set global bot instance and start scheduler
+    # Set global bot instance
     globals.bot = application.bot
-    scheduler.start()
 
     application.add_handler(CommandHandler("info", info))
     application.add_handler(CommandHandler("start", start))
@@ -1028,6 +1027,9 @@ if __name__ == '__main__':
         # Инициализация и запуск приложения внутри цикла
         loop.run_until_complete(application.initialize())
         loop.run_until_complete(application.start())
+        
+        # Start scheduler inside the loop
+        scheduler.start()
         
         # Автоматическая настройка вебхука
         render_url = os.getenv("RENDER_EXTERNAL_URL")

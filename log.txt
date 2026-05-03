@@ -1,231 +1,80 @@
-2026-05-03T16:03:53.21785789Z                 "description": "\n    执行网络搜索并返回搜索结果文本\n\n    参数:\n        query: 查询语句，包含用户想要搜索的内容\n\n    返回:\n        异步生成器，依次产生:\n        - 搜索状态消息 (\"message_search_stage_2\", \"message_search_stage_3\", \"message_search_stage_4\")\n        - 最终的搜索结果文本列表\n\n    说明:\n        - 根据查询语句自动搜索结果\n        - 使用多线程并行抓取网页内容\n        - 在搜索过程中通过yield返回状态更新\n    ",
-2026-05-03T16:03:53.21786019Z                 "parameters": {
-2026-05-03T16:03:53.21786228Z                     "type": "object",
-2026-05-03T16:03:53.21786866Z                     "properties": {
-2026-05-03T16:03:53.21787067Z                         "query": {
-2026-05-03T16:03:53.21787274Z                             "type": "string"
-2026-05-03T16:03:53.217874681Z                         }
-2026-05-03T16:03:53.21787673Z                     },
-2026-05-03T16:03:53.217878721Z                     "required": [
-2026-05-03T16:03:53.21788075Z                         "query"
-2026-05-03T16:03:53.21788273Z                     ]
-2026-05-03T16:03:53.217884841Z                 }
-2026-05-03T16:03:53.217898731Z             }
-2026-05-03T16:03:53.217900891Z         }
-2026-05-03T16:03:53.217902921Z     ],
-2026-05-03T16:03:53.217904911Z     "stream_options": {
-2026-05-03T16:03:53.217906881Z         "include_usage": true
-2026-05-03T16:03:53.217908861Z     }
-2026-05-03T16:03:53.217910831Z }
-2026-05-03T16:04:14.600547766Z 2026-05-03 16:04:14,600 - chatgpt_default - INFO - total_tokens: 2013
-2026-05-03T16:04:14.647263396Z first message len: 5
-2026-05-03T16:04:14.647287946Z `🤖️ gpt-5`
-2026-05-03T16:04:14.647292776Z 
-2026-05-03T16:04:14.647298646Z Сейчас по моему серверу: понедельник, 4 мая 2026, 00:03:53.
-2026-05-03T16:04:14.647303106Z 
-2026-05-03T16:04:14.647308456Z Если вам нужно время в Киеве: Киев сейчас в летнем времени (UTC+3). Скажите ваш часовой пояс или текущее время у вас — пересчитаю. Или проверьте на time.is/Kyiv.
-2026-05-03T16:04:14.647314526Z DEBUG: Incoming update received: 116271407
-2026-05-03T16:04:14.647853454Z 2026-05-03 16:04:14,647 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 16:04:14] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T16:04:30.850399056Z DEBUG: Incoming update received: 116271408
-2026-05-03T16:04:30.851150377Z 2026-05-03 16:04:30,851 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 16:04:30] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T16:04:41.056602408Z DEBUG: Incoming update received: 116271409
-2026-05-03T16:04:41.057692504Z 2026-05-03 16:04:41,057 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 16:04:41] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T16:07:45.512447998Z 2026-05-03 16:07:45,512 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 16:07:45] "HEAD / HTTP/1.1" 200 -
-2026-05-03T16:12:49.467257241Z 2026-05-03 16:12:49,467 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 16:12:49] "HEAD / HTTP/1.1" 200 -
-2026-05-03T16:17:54.514989438Z 2026-05-03 16:17:54,514 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 16:17:54] "HEAD / HTTP/1.1" 200 -
-2026-05-03T16:22:58.907630954Z 2026-05-03 16:22:58,907 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 16:22:58] "HEAD / HTTP/1.1" 200 -
-2026-05-03T16:28:04.329598802Z 2026-05-03 16:28:04,329 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 16:28:04] "HEAD / HTTP/1.1" 200 -
-2026-05-03T16:33:10.533100309Z 2026-05-03 16:33:10,532 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 16:33:10] "HEAD / HTTP/1.1" 200 -
-2026-05-03T16:38:14.670997999Z 2026-05-03 16:38:14,670 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 16:38:14] "HEAD / HTTP/1.1" 200 -
-2026-05-03T16:43:19.884882208Z 2026-05-03 16:43:19,884 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 16:43:19] "HEAD / HTTP/1.1" 200 -
-2026-05-03T16:48:24.519248049Z 2026-05-03 16:48:24,519 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 16:48:24] "HEAD / HTTP/1.1" 200 -
-2026-05-03T16:53:29.457990774Z 2026-05-03 16:53:29,457 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 16:53:29] "HEAD / HTTP/1.1" 200 -
-2026-05-03T16:58:34.649377557Z 2026-05-03 16:58:34,649 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 16:58:34] "HEAD / HTTP/1.1" 200 -
-2026-05-03T17:03:26.655319455Z 2026-05-03 17:03:26,655 - apscheduler.scheduler - INFO - Removed job d2ba45979911444fbd17caffcdd1a449
-2026-05-03T17:03:26.656730245Z 2026-05-03 17:03:26,655 - apscheduler.executors.default - INFO - Running job "501851181 (trigger: date[2026-05-03 17:03:26 UTC], next run at: 2026-05-03 17:03:26 UTC)" (scheduled at 2026-05-03 17:03:26.562704+00:00)
-2026-05-03T17:03:26.656747345Z 2026-05-03 17:03:26,655 - apscheduler.executors.default - INFO - Job "501851181 (trigger: date[2026-05-03 17:03:26 UTC], next run at: 2026-05-03 17:03:26 UTC)" executed successfully
-2026-05-03T17:03:38.445010785Z 2026-05-03 17:03:38,444 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:03:38] "HEAD / HTTP/1.1" 200 -
-2026-05-03T17:08:43.617053046Z 2026-05-03 17:08:43,616 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:08:43] "HEAD / HTTP/1.1" 200 -
-2026-05-03T17:13:48.50458811Z 2026-05-03 17:13:48,504 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:13:48] "HEAD / HTTP/1.1" 200 -
-2026-05-03T17:18:53.849346735Z 2026-05-03 17:18:53,849 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:18:53] "HEAD / HTTP/1.1" 200 -
-2026-05-03T17:19:47.967031415Z DEBUG: Incoming update received: 116271410
-2026-05-03T17:19:47.967558623Z 2026-05-03 17:19:47,967 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:19:47] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T17:19:47.968278993Z 
-2026-05-03T17:19:47.968290683Z {
-2026-05-03T17:19:47.968295933Z   "message": {
-2026-05-03T17:19:47.968301343Z     "channel_chat_created": false,
-2026-05-03T17:19:47.968306923Z     "delete_chat_photo": false,
-2026-05-03T17:19:47.968311913Z     "group_chat_created": false,
-2026-05-03T17:19:47.968315114Z     "supergroup_chat_created": false,
-2026-05-03T17:19:47.968318283Z     "text": "Время",
-2026-05-03T17:19:47.968321463Z     "chat": {
-2026-05-03T17:19:47.968324634Z       "first_name": "Вик Аник",
-2026-05-03T17:19:47.968328594Z       "id": 501851181,
-2026-05-03T17:19:47.968331744Z       "type": "private",
-2026-05-03T17:19:47.968334894Z       "username": "anivik"
-2026-05-03T17:19:47.968337954Z     },
-2026-05-03T17:19:47.968341094Z     "date": 1777828787,
-2026-05-03T17:19:47.968344194Z     "message_id": 608,
-2026-05-03T17:19:47.968347334Z     "from": {
-2026-05-03T17:19:47.968350504Z       "first_name": "Вик Аник",
-2026-05-03T17:19:47.968353584Z       "id": 501851181,
-2026-05-03T17:19:47.968356724Z       "is_bot": false,
-2026-05-03T17:19:47.968359864Z       "language_code": "ru",
-2026-05-03T17:19:47.968362954Z       "username": "anivik"
-2026-05-03T17:19:47.968366064Z     }
-2026-05-03T17:19:47.968369174Z   },
-2026-05-03T17:19:47.968372274Z   "update_id": 116271410
-2026-05-03T17:19:47.968375404Z }
-2026-05-03T17:19:47.968378494Z 
-2026-05-03T17:19:47.968381635Z DEBUG: command_bot called for user 501851181
-2026-05-03T17:19:48.472999939Z 2026-05-03 17:19:48,472 - apscheduler.scheduler - INFO - Added job "501851181" to job store "default"
-2026-05-03T17:19:49.026712149Z 2026-05-03 17:19:49,026 - chatgpt_default - INFO - Request Body:
-2026-05-03T17:19:49.026731039Z {
-2026-05-03T17:19:49.026736679Z     "model": "gpt-5",
-2026-05-03T17:19:49.026741469Z     "messages": [
-2026-05-03T17:19:49.026746169Z         {
-2026-05-03T17:19:49.026751179Z             "role": "system",
-2026-05-03T17:19:49.026756549Z             "content": "Respond conversationally in Russian. Current date: [ 2026-05-03 ]"
-2026-05-03T17:19:49.026761729Z         },
-2026-05-03T17:19:49.02676646Z         {
-2026-05-03T17:19:49.02677112Z             "role": "user",
-2026-05-03T17:19:49.02677642Z             "content": "Время"
-2026-05-03T17:19:49.02678141Z         }
-2026-05-03T17:19:49.02678567Z     ],
-2026-05-03T17:19:49.0268052Z     "stream": true,
-2026-05-03T17:19:49.02680848Z     "tool_choice": "auto",
-2026-05-03T17:19:49.02681185Z     "tools": [
-2026-05-03T17:19:49.02681534Z         {
-2026-05-03T17:19:49.02681851Z             "type": "function",
-2026-05-03T17:19:49.02682161Z             "function": {
-2026-05-03T17:19:49.02682488Z                 "name": "get_time",
-2026-05-03T17:19:49.02682867Z                 "description": "\n    获取当前日期时间及星期几\n\n    返回:\n        包含当前日期时间及星期几的字符串\n    "
-2026-05-03T17:19:49.02683169Z             }
-2026-05-03T17:19:49.026834741Z         },
-2026-05-03T17:19:49.026838001Z         {
-2026-05-03T17:19:49.026841051Z             "type": "function",
-2026-05-03T17:19:49.026844221Z             "function": {
-2026-05-03T17:19:49.026846921Z                 "name": "get_url_content",
-2026-05-03T17:19:49.026850861Z                 "description": "\n获取 url 的网页内容，以 markdown 格式返回给用户\n\n:param url: 要爬取的网页URL\n:return: 网页内容\n    ",
-2026-05-03T17:19:49.026854161Z                 "parameters": {
-2026-05-03T17:19:49.026857411Z                     "type": "object",
-2026-05-03T17:19:49.026859971Z                     "properties": {
-2026-05-03T17:19:49.026862031Z                         "url": {
-2026-05-03T17:19:49.026864531Z                             "type": "string"
-2026-05-03T17:19:49.026867611Z                         }
-2026-05-03T17:19:49.026870841Z                     },
-2026-05-03T17:19:49.026873961Z                     "required": [
-2026-05-03T17:19:49.026876891Z                         "url"
-2026-05-03T17:19:49.026879651Z                     ]
-2026-05-03T17:19:49.026882481Z                 }
-2026-05-03T17:19:49.026885331Z             }
-2026-05-03T17:19:49.026888351Z         },
-2026-05-03T17:19:49.026891651Z         {
-2026-05-03T17:19:49.026894551Z             "type": "function",
-2026-05-03T17:19:49.026897571Z             "function": {
-2026-05-03T17:19:49.026900691Z                 "name": "get_search_results",
-2026-05-03T17:19:49.026906751Z                 "description": "\n    执行网络搜索并返回搜索结果文本\n\n    参数:\n        query: 查询语句，包含用户想要搜索的内容\n\n    返回:\n        异步生成器，依次产生:\n        - 搜索状态消息 (\"message_search_stage_2\", \"message_search_stage_3\", \"message_search_stage_4\")\n        - 最终的搜索结果文本列表\n\n    说明:\n        - 根据查询语句自动搜索结果\n        - 使用多线程并行抓取网页内容\n        - 在搜索过程中通过yield返回状态更新\n    ",
-2026-05-03T17:19:49.026910152Z                 "parameters": {
-2026-05-03T17:19:49.026913432Z                     "type": "object",
-2026-05-03T17:19:49.026916672Z                     "properties": {
-2026-05-03T17:19:49.026920002Z                         "query": {
-2026-05-03T17:19:49.026923232Z                             "type": "string"
-2026-05-03T17:19:49.026926432Z                         }
-2026-05-03T17:19:49.026929512Z                     },
-2026-05-03T17:19:49.026932432Z                     "required": [
-2026-05-03T17:19:49.026935792Z                         "query"
-2026-05-03T17:19:49.026938742Z                     ]
-2026-05-03T17:19:49.026941702Z                 }
-2026-05-03T17:19:49.026944652Z             }
-2026-05-03T17:19:49.026947602Z         }
-2026-05-03T17:19:49.026950912Z     ],
-2026-05-03T17:19:49.026953862Z     "stream_options": {
-2026-05-03T17:19:49.026956672Z         "include_usage": true
-2026-05-03T17:19:49.026959792Z     }
-2026-05-03T17:19:49.026970492Z }
-2026-05-03T17:19:51.377214995Z 2026-05-03 17:19:51,377 - chatgpt_default - INFO - total_tokens: 416
-2026-05-03T17:19:51.377246936Z 2026-05-03 17:19:51,377 - chatgpt_default - INFO - function_full_response: {}
-2026-05-03T17:19:51.377259126Z 2026-05-03 17:19:51,377 - chatgpt_default - INFO - Tool use, calling: get_time
-2026-05-03T17:19:51.378180339Z 2026-05-03 17:19:51,378 - chatgpt_default - INFO - Request Body:
-2026-05-03T17:19:51.37820495Z {
-2026-05-03T17:19:51.378208939Z     "model": "gpt-5",
-2026-05-03T17:19:51.378211779Z     "messages": [
-2026-05-03T17:19:51.37821431Z         {
-2026-05-03T17:19:51.37821761Z             "role": "system",
-2026-05-03T17:19:51.37822094Z             "content": "Respond conversationally in Russian. Current date: [ 2026-05-03 ]"
-2026-05-03T17:19:51.37822349Z         },
-2026-05-03T17:19:51.37822601Z         {
-2026-05-03T17:19:51.37822866Z             "role": "user",
-2026-05-03T17:19:51.37823168Z             "content": "Время"
-2026-05-03T17:19:51.37823688Z         },
-2026-05-03T17:19:51.37823977Z         {
-2026-05-03T17:19:51.3782424Z             "role": "assistant",
-2026-05-03T17:19:51.37824499Z             "tool_calls": [
-2026-05-03T17:19:51.3782475Z                 {
-2026-05-03T17:19:51.37825012Z                     "id": "call_4adPegvL61AyqREcgMbr3wmq",
-2026-05-03T17:19:51.37825265Z                     "type": "function",
-2026-05-03T17:19:51.37825516Z                     "function": {
-2026-05-03T17:19:51.37825769Z                         "name": "get_time",
-2026-05-03T17:19:51.37826016Z                         "arguments": "{}"
-2026-05-03T17:19:51.37826263Z                     }
-2026-05-03T17:19:51.37826519Z                 }
-2026-05-03T17:19:51.37826773Z             ]
-2026-05-03T17:19:51.37827036Z         },
-2026-05-03T17:19:51.37827274Z         {
-2026-05-03T17:19:51.37827526Z             "role": "tool",
-2026-05-03T17:19:51.3782777Z             "tool_call_id": "call_4adPegvL61AyqREcgMbr3wmq",
-2026-05-03T17:19:51.378280271Z             "content": "今天是：2026-05-04，现在的时间是：01:19:51，星期一"
-2026-05-03T17:19:51.378282791Z         }
-2026-05-03T17:19:51.378285281Z     ],
-2026-05-03T17:19:51.378287831Z     "stream": true,
-2026-05-03T17:19:51.378290411Z     "tool_choice": "auto",
-2026-05-03T17:19:51.378293041Z     "tools": [
-2026-05-03T17:19:51.378295861Z         {
-2026-05-03T17:19:51.378298371Z             "type": "function",
-2026-05-03T17:19:51.378300891Z             "function": {
-2026-05-03T17:19:51.378303381Z                 "name": "get_time",
-2026-05-03T17:19:51.378306721Z                 "description": "\n    获取当前日期时间及星期几\n\n    返回:\n        包含当前日期时间及星期几的字符串\n    "
-2026-05-03T17:19:51.378309341Z             }
-2026-05-03T17:19:51.378311801Z         },
-2026-05-03T17:19:51.378314301Z         {
-2026-05-03T17:19:51.378316761Z             "type": "function",
-2026-05-03T17:19:51.378319351Z             "function": {
-2026-05-03T17:19:51.378321791Z                 "name": "get_url_content",
-2026-05-03T17:19:51.378324801Z                 "description": "\n获取 url 的网页内容，以 markdown 格式返回给用户\n\n:param url: 要爬取的网页URL\n:return: 网页内容\n    ",
-2026-05-03T17:19:51.378327341Z                 "parameters": {
-2026-05-03T17:19:51.378330101Z                     "type": "object",
-2026-05-03T17:19:51.378332711Z                     "properties": {
-2026-05-03T17:19:51.378335201Z                         "url": {
-2026-05-03T17:19:51.378337732Z                             "type": "string"
-2026-05-03T17:19:51.378356322Z                         }
-2026-05-03T17:19:51.378359072Z                     },
-2026-05-03T17:19:51.378361662Z                     "required": [
-2026-05-03T17:19:51.378364142Z                         "url"
-2026-05-03T17:19:51.378366832Z                     ]
-2026-05-03T17:19:51.378369422Z                 }
-2026-05-03T17:19:51.378372222Z             }
-2026-05-03T17:19:51.378374832Z         },
-2026-05-03T17:19:51.378377492Z         {
-2026-05-03T17:19:51.378380222Z             "type": "function",
-2026-05-03T17:19:51.378382852Z             "function": {
-2026-05-03T17:19:51.378385592Z                 "name": "get_search_results",
-2026-05-03T17:19:51.378390032Z                 "description": "\n    执行网络搜索并返回搜索结果文本\n\n    参数:\n        query: 查询语句，包含用户想要搜索的内容\n\n    返回:\n        异步生成器，依次产生:\n        - 搜索状态消息 (\"message_search_stage_2\", \"message_search_stage_3\", \"message_search_stage_4\")\n        - 最终的搜索结果文本列表\n\n    说明:\n        - 根据查询语句自动搜索结果\n        - 使用多线程并行抓取网页内容\n        - 在搜索过程中通过yield返回状态更新\n    ",
-2026-05-03T17:19:51.378393072Z                 "parameters": {
-2026-05-03T17:19:51.378395982Z                     "type": "object",
-2026-05-03T17:19:51.378398852Z                     "properties": {
-2026-05-03T17:19:51.378401442Z                         "query": {
-2026-05-03T17:19:51.378403972Z                             "type": "string"
-2026-05-03T17:19:51.378406433Z                         }
-2026-05-03T17:19:51.378409013Z                     },
-2026-05-03T17:19:51.378411453Z                     "required": [
-2026-05-03T17:19:51.378414222Z                         "query"
-2026-05-03T17:19:51.378416742Z                     ]
-2026-05-03T17:19:51.378419323Z                 }
-2026-05-03T17:19:51.378421883Z             }
-2026-05-03T17:19:51.378424363Z         }
-2026-05-03T17:19:51.378426813Z     ],
-2026-05-03T17:19:51.378429293Z     "stream_options": {
-2026-05-03T17:19:51.378431863Z         "include_usage": true
-2026-05-03T17:19:51.378434453Z     }
-2026-05-03T17:19:51.378437073Z }
-2026-05-03T17:19:57.901734052Z 2026-05-03 17:19:57,900 - chatgpt_default - INFO - total_tokens: 416
+
+2026-05-03T18:20:13.854655657Z ==> Deploying...
+2026-05-03T18:20:13.929453104Z ==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
+2026-05-03T18:20:26.800536462Z Traceback (most recent call last):
+2026-05-03T18:20:26.800582613Z   File "/home/bot.py", line 15, in <module>
+2026-05-03T18:20:26.800603354Z     scheduler = AsyncIOScheduler()
+2026-05-03T18:20:26.800611764Z                 ^^^^^^^^^^^^^^^^^^
+2026-05-03T18:20:26.800621284Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/base.py", line 125, in __init__
+2026-05-03T18:20:26.800746617Z     self.configure(gconfig, **options)
+2026-05-03T18:20:26.800761677Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/base.py", line 174, in configure
+2026-05-03T18:20:26.800904581Z     self._configure(config)
+2026-05-03T18:20:26.800928832Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/asyncio.py", line 54, in _configure
+2026-05-03T18:20:26.800999573Z     super()._configure(config)
+2026-05-03T18:20:26.801004053Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/base.py", line 903, in _configure
+2026-05-03T18:20:26.801211119Z     self.timezone = astimezone(config.pop("timezone", None)) or get_localzone()
+2026-05-03T18:20:26.801217628Z                                                                 ^^^^^^^^^^^^^^^
+2026-05-03T18:20:26.801221849Z   File "/usr/local/lib/python3.11/site-packages/tzlocal/unix.py", line 237, in get_localzone
+2026-05-03T18:20:26.801348422Z     _cache_tz = _get_localzone()
+2026-05-03T18:20:26.801353682Z                 ^^^^^^^^^^^^^^^^
+2026-05-03T18:20:26.801357902Z   File "/usr/local/lib/python3.11/site-packages/tzlocal/unix.py", line 190, in _get_localzone
+2026-05-03T18:20:26.801470345Z     tzenv = utils._tz_from_env()
+2026-05-03T18:20:26.801475435Z             ^^^^^^^^^^^^^^^^^^^^
+2026-05-03T18:20:26.801479355Z   File "/usr/local/lib/python3.11/site-packages/tzlocal/utils.py", line 105, in _tz_from_env
+2026-05-03T18:20:26.801592038Z     raise zoneinfo.ZoneInfoNotFoundError(
+2026-05-03T18:20:26.801598028Z zoneinfo._common.ZoneInfoNotFoundError: 'tzlocal() does not support non-zoneinfo timezones like 1. \nPlease use a timezone in the form of Continent/City'
+2026-05-03T18:20:30.481100021Z ==> Exited with status 1
+2026-05-03T18:20:30.483443454Z ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
+2026-05-03T18:20:32.122043467Z Traceback (most recent call last):
+2026-05-03T18:20:32.122095418Z   File "/home/bot.py", line 15, in <module>
+2026-05-03T18:20:32.122109869Z     scheduler = AsyncIOScheduler()
+2026-05-03T18:20:32.122113619Z                 ^^^^^^^^^^^^^^^^^^
+2026-05-03T18:20:32.122117359Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/base.py", line 125, in __init__
+2026-05-03T18:20:32.122240842Z     self.configure(gconfig, **options)
+2026-05-03T18:20:32.122247702Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/base.py", line 174, in configure
+2026-05-03T18:20:32.122335924Z     self._configure(config)
+2026-05-03T18:20:32.122347314Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/asyncio.py", line 54, in _configure
+2026-05-03T18:20:32.122446177Z     super()._configure(config)
+2026-05-03T18:20:32.122455077Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/base.py", line 903, in _configure
+2026-05-03T18:20:32.122657962Z     self.timezone = astimezone(config.pop("timezone", None)) or get_localzone()
+2026-05-03T18:20:32.122673072Z                                                                 ^^^^^^^^^^^^^^^
+2026-05-03T18:20:32.122677042Z   File "/usr/local/lib/python3.11/site-packages/tzlocal/unix.py", line 237, in get_localzone
+2026-05-03T18:20:32.122816646Z     _cache_tz = _get_localzone()
+2026-05-03T18:20:32.122823436Z                 ^^^^^^^^^^^^^^^^
+2026-05-03T18:20:32.122826906Z   File "/usr/local/lib/python3.11/site-packages/tzlocal/unix.py", line 190, in _get_localzone
+2026-05-03T18:20:32.207969263Z     tzenv = utils._tz_from_env()
+2026-05-03T18:20:32.207989303Z             ^^^^^^^^^^^^^^^^^^^^
+2026-05-03T18:20:32.207992763Z   File "/usr/local/lib/python3.11/site-packages/tzlocal/utils.py", line 105, in _tz_from_env
+2026-05-03T18:20:32.208127756Z     raise zoneinfo.ZoneInfoNotFoundError(
+2026-05-03T18:20:32.208134887Z zoneinfo._common.ZoneInfoNotFoundError: 'tzlocal() does not support non-zoneinfo timezones like 1. \nPlease use a timezone in the form of Continent/City'
+2026-05-03T18:22:17.410846223Z ==> Deploying...
+2026-05-03T18:22:17.48617678Z ==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
+2026-05-03T18:22:42.487111206Z Traceback (most recent call last):
+2026-05-03T18:22:42.487150538Z   File "/home/bot.py", line 972, in <module>
+2026-05-03T18:22:42.487417514Z     scheduler.start()
+2026-05-03T18:22:42.487430285Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/asyncio.py", line 36, in start
+2026-05-03T18:22:42.487497509Z     self._eventloop = asyncio.get_running_loop()
+2026-05-03T18:22:42.48750657Z                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-03T18:22:42.48751014Z RuntimeError: no running event loop
+2026-05-03T18:22:45.803145272Z ==> Exited with status 1
+2026-05-03T18:22:45.807372159Z ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
+2026-05-03T18:22:46.86583707Z 2026-05-03 21:22:46,865 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:22:46] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T18:22:56.1623865Z Traceback (most recent call last):
+2026-05-03T18:22:56.162432333Z   File "/home/bot.py", line 972, in <module>
+2026-05-03T18:22:56.162772503Z     scheduler.start()
+2026-05-03T18:22:56.162782644Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/asyncio.py", line 36, in start
+2026-05-03T18:22:56.162871299Z     self._eventloop = asyncio.get_running_loop()
+2026-05-03T18:22:56.162911591Z                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-03T18:22:56.162915081Z RuntimeError: no running event loop
+2026-05-03T18:23:09.312769343Z 2026-05-03 21:23:09,312 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:23:09] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T18:23:37.246992912Z 2026-05-03 21:23:37,246 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:23:37] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T18:23:37.247819058Z 2026-05-03 21:23:37,247 - apscheduler.scheduler - INFO - Removed job 2b069f7dc38a4cf6be1274ed59d7e4c9
+2026-05-03T18:23:37.248124327Z 2026-05-03 21:23:37,248 - apscheduler.scheduler - INFO - Added job "501851181" to job store "default"
+2026-05-03T18:24:07.709238107Z 2026-05-03 21:24:07,709 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:24:07] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T18:24:09.754942182Z 2026-05-03 21:24:09,754 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:24:09] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T18:24:12.246055023Z 2026-05-03 21:24:12,245 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:24:12] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T18:24:13.829686136Z 2026-05-03 21:24:13,829 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:24:13] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T18:24:16.015767678Z 2026-05-03 21:24:16,015 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:24:16] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T18:24:24.950722813Z 2026-05-03 21:24:24,950 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:24:24] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T18:24:24.951294112Z 2026-05-03 21:24:24,951 - apscheduler.scheduler - INFO - Removed job edb6ea8e169648939c77cab6ebb92a4e
+2026-05-03T18:24:24.95156875Z 2026-05-03 21:24:24,951 - apscheduler.scheduler - INFO - Added job "501851181" to job store "default"
