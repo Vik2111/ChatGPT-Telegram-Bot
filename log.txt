@@ -1,96 +1,5 @@
-2026-05-03T18:22:45.807372159Z ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
-2026-05-03T18:22:46.86583707Z 2026-05-03 21:22:46,865 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:22:46] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T18:22:56.1623865Z Traceback (most recent call last):
-2026-05-03T18:22:56.162432333Z   File "/home/bot.py", line 972, in <module>
-2026-05-03T18:22:56.162772503Z     scheduler.start()
-2026-05-03T18:22:56.162782644Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/asyncio.py", line 36, in start
-2026-05-03T18:22:56.162871299Z     self._eventloop = asyncio.get_running_loop()
-2026-05-03T18:22:56.162911591Z                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T18:22:56.162915081Z RuntimeError: no running event loop
-2026-05-03T18:23:09.312769343Z 2026-05-03 21:23:09,312 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:23:09] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T18:23:37.246992912Z 2026-05-03 21:23:37,246 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:23:37] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T18:23:37.247819058Z 2026-05-03 21:23:37,247 - apscheduler.scheduler - INFO - Removed job 2b069f7dc38a4cf6be1274ed59d7e4c9
-2026-05-03T18:23:37.248124327Z 2026-05-03 21:23:37,248 - apscheduler.scheduler - INFO - Added job "501851181" to job store "default"
-2026-05-03T18:24:07.709238107Z 2026-05-03 21:24:07,709 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:24:07] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T18:24:09.754942182Z 2026-05-03 21:24:09,754 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:24:09] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T18:24:12.246055023Z 2026-05-03 21:24:12,245 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:24:12] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T18:24:13.829686136Z 2026-05-03 21:24:13,829 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:24:13] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T18:24:16.015767678Z 2026-05-03 21:24:16,015 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:24:16] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T18:24:24.950722813Z 2026-05-03 21:24:24,950 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:24:24] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T18:24:24.951294112Z 2026-05-03 21:24:24,951 - apscheduler.scheduler - INFO - Removed job edb6ea8e169648939c77cab6ebb92a4e
-2026-05-03T18:24:24.95156875Z 2026-05-03 21:24:24,951 - apscheduler.scheduler - INFO - Added job "501851181" to job store "default"
-2026-05-03T18:24:52.18905347Z 2026-05-03 21:24:52,188 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:24:52] "HEAD / HTTP/1.1" 200 -
-2026-05-03T18:29:57.234014409Z 2026-05-03 21:29:57,233 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:29:57] "HEAD / HTTP/1.1" 200 -
-2026-05-03T18:35:02.425954622Z 2026-05-03 21:35:02,425 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:35:02] "HEAD / HTTP/1.1" 200 -
-2026-05-03T18:36:42.993315246Z ==> Deploying...
-2026-05-03T18:36:43.054577223Z ==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
-2026-05-03T18:37:10.921635822Z 2026-05-03 21:37:10,921 - root - INFO - Starting Flask server on port 10000...
-2026-05-03T18:37:10.922517384Z  * Serving Flask app 'bot'
-2026-05-03T18:37:10.922535354Z  * Debug mode: off
-2026-05-03T18:37:11.212552121Z 2026-05-03 21:37:11,212 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
-2026-05-03T18:37:11.212574951Z  * Running on all addresses (0.0.0.0)
-2026-05-03T18:37:11.212578401Z  * Running on http://127.0.0.1:10000
-2026-05-03T18:37:11.212581021Z  * Running on http://10.195.34.189:10000
-2026-05-03T18:37:11.212591212Z 2026-05-03 21:37:11,212 - werkzeug - INFO - Press CTRL+C to quit
-2026-05-03T18:37:11.492255885Z 2026-05-03 21:37:11,492 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:37:11] "HEAD / HTTP/1.1" 200 -
-2026-05-03T18:37:11.705139891Z 2026-05-03 21:37:11,704 - apscheduler.scheduler - INFO - Scheduler started
-2026-05-03T18:37:11.705180472Z 2026-05-03 21:37:11,705 - telegram.ext.Application - INFO - Application started
-2026-05-03T18:37:11.705311376Z Exception in thread Thread-1 (start_background_loop):
-2026-05-03T18:37:11.705317176Z Traceback (most recent call last):
-2026-05-03T18:37:11.705320606Z   File "/usr/local/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
-2026-05-03T18:37:11.705553832Z     self.run()
-2026-05-03T18:37:11.705561372Z   File "/usr/local/lib/python3.11/threading.py", line 982, in run
-2026-05-03T18:37:11.705747866Z     self._target(*self._args, **self._kwargs)
-2026-05-03T18:37:11.705756497Z   File "/home/bot.py", line 1032, in start_background_loop
-2026-05-03T18:37:11.706083514Z     scheduler.start()
-2026-05-03T18:37:11.706092025Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/asyncio.py", line 36, in start
-2026-05-03T18:37:11.706171397Z     self._eventloop = asyncio.get_running_loop()
-2026-05-03T18:37:11.706179397Z                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T18:37:11.706182327Z RuntimeError: no running event loop
-2026-05-03T18:37:14.060841118Z ==> Your service is live 🎉
-2026-05-03T18:37:14.1899416Z 2026-05-03 21:37:14,189 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:37:14] "GET / HTTP/1.1" 200 -
-2026-05-03T18:37:14.235441089Z ==> 
-2026-05-03T18:37:14.239654559Z ==> ///////////////////////////////////////////////////////////
-2026-05-03T18:37:14.243735766Z ==> 
-2026-05-03T18:37:14.248015916Z ==> Available at your primary URL https://chatgpt-telegram-service.onrender.com
-2026-05-03T18:37:14.252718792Z ==> 
-2026-05-03T18:37:14.25610881Z ==> ///////////////////////////////////////////////////////////
-2026-05-03T18:40:06.703307796Z 2026-05-03 21:40:06,703 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:40:06] "HEAD / HTTP/1.1" 200 -
-2026-05-03T18:42:20.503852282Z ==> Detected service running on port 10000
-2026-05-03T18:42:20.673908537Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
-2026-05-03T18:42:47.310565858Z 2026-05-03 21:42:47,310 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:42:47] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T18:45:09.68946297Z 2026-05-03 21:45:09,689 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:45:09] "HEAD / HTTP/1.1" 200 -
-2026-05-03T18:47:52.680110129Z 2026-05-03 21:47:52,679 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:47:52] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T18:48:13.708913707Z 2026-05-03 21:48:13,708 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:48:13] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T18:48:15.209661113Z 2026-05-03 21:48:15,208 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:48:15] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T18:50:14.858406127Z 2026-05-03 21:50:14,858 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:50:14] "HEAD / HTTP/1.1" 200 -
-2026-05-03T18:51:03.497761896Z ==> Deploying...
-2026-05-03T18:51:03.569817575Z ==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
-2026-05-03T18:51:31.331191857Z 2026-05-03 21:51:31,330 - root - INFO - Starting Flask server on port 10000...
-2026-05-03T18:51:31.331404362Z  * Serving Flask app 'bot'
-2026-05-03T18:51:31.331412813Z  * Debug mode: off
-2026-05-03T18:51:31.333043813Z 2026-05-03 21:51:31,332 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
-2026-05-03T18:51:31.333061314Z  * Running on all addresses (0.0.0.0)
-2026-05-03T18:51:31.333065054Z  * Running on http://127.0.0.1:10000
-2026-05-03T18:51:31.333068214Z  * Running on http://10.192.32.155:10000
-2026-05-03T18:51:31.333954976Z 2026-05-03 21:51:31,333 - werkzeug - INFO - Press CTRL+C to quit
-2026-05-03T18:51:32.019846949Z 2026-05-03 21:51:32,018 - apscheduler.scheduler - INFO - Scheduler started
-2026-05-03T18:51:32.01987817Z 2026-05-03 21:51:32,018 - telegram.ext.Application - INFO - Application started
-2026-05-03T18:51:32.01988269Z Exception in thread Thread-1 (start_background_loop):
-2026-05-03T18:51:32.01988633Z Traceback (most recent call last):
-2026-05-03T18:51:32.019889581Z   File "/usr/local/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
-2026-05-03T18:51:32.01989253Z     self.run()
-2026-05-03T18:51:32.01989555Z   File "/usr/local/lib/python3.11/threading.py", line 982, in run
-2026-05-03T18:51:32.019898391Z     self._target(*self._args, **self._kwargs)
-2026-05-03T18:51:32.019901571Z   File "/home/bot.py", line 1032, in start_background_loop
-2026-05-03T18:51:32.02026383Z     scheduler.start()
-2026-05-03T18:51:32.02027479Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/asyncio.py", line 36, in start
-2026-05-03T18:51:32.020521056Z     self._eventloop = asyncio.get_running_loop()
-2026-05-03T18:51:32.020568507Z                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
 2026-05-03T18:51:32.020586688Z RuntimeError: no running event loop
 2026-05-03T18:51:32.263442762Z 2026-05-03 21:51:32,263 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:51:32] "HEAD / HTTP/1.1" 200 -
-2026-05-03T18:51:34.54480806Z ==> Your service is live 🎉
-2026-05-03T18:51:34.657026513Z ==> 
 2026-05-03T18:51:34.665219456Z ==> ///////////////////////////////////////////////////////////
 2026-05-03T18:51:34.670113567Z ==> 
 2026-05-03T18:51:34.675275572Z ==> Available at your primary URL https://chatgpt-telegram-service.onrender.com
@@ -99,3 +8,58 @@
 2026-05-03T18:51:34.78529275Z 2026-05-03 21:51:34,785 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:51:34] "GET / HTTP/1.1" 200 -
 2026-05-03T18:53:49.854789939Z 2026-05-03 21:53:49,854 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:53:49] "POST /webhook HTTP/1.1" 200 -
 2026-05-03T18:54:14.441260455Z 2026-05-03 21:54:14,441 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:54:14] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T18:55:18.838088103Z 2026-05-03 21:55:18,837 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:55:18] "HEAD / HTTP/1.1" 200 -
+2026-05-03T18:56:39.970906475Z ==> Detected service running on port 10000
+2026-05-03T18:56:40.053757727Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
+2026-05-03T18:58:19.365525634Z 2026-05-03 21:58:19,365 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:58:19] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T18:58:34.175862569Z 2026-05-03 21:58:34,175 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:58:34] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T18:59:12.273967839Z 2026-05-03 21:59:12,273 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:59:12] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T18:59:19.151229815Z 2026-05-03 21:59:19,150 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:59:19] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T18:59:42.843134087Z 2026-05-03 21:59:42,842 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:59:42] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T18:59:46.080801721Z 2026-05-03 21:59:46,080 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:59:46] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T19:00:23.786470114Z 2026-05-03 22:00:23,786 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 22:00:23] "HEAD / HTTP/1.1" 200 -
+2026-05-03T19:01:12.065134472Z ==> Deploying...
+2026-05-03T19:01:12.146340974Z ==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
+2026-05-03T19:01:57.256107749Z  * Serving Flask app 'bot'
+2026-05-03T19:01:57.25613777Z  * Debug mode: off
+2026-05-03T19:01:57.25615834Z 2026-05-03 22:01:57,254 - root - INFO - Starting Flask server on port 10000...
+2026-05-03T19:01:57.464871669Z 2026-05-03 22:01:57,464 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+2026-05-03T19:01:57.46491085Z  * Running on all addresses (0.0.0.0)
+2026-05-03T19:01:57.46491412Z  * Running on http://127.0.0.1:10000
+2026-05-03T19:01:57.46491725Z  * Running on http://10.194.140.42:10000
+2026-05-03T19:01:57.552987101Z 2026-05-03 22:01:57,551 - werkzeug - INFO - Press CTRL+C to quit
+2026-05-03T19:01:57.634085281Z 2026-05-03 22:01:57,633 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 22:01:57] "HEAD / HTTP/1.1" 200 -
+2026-05-03T19:01:57.956883059Z 2026-05-03 22:01:57,956 - apscheduler.scheduler - INFO - Scheduler started
+2026-05-03T19:01:57.957002262Z 2026-05-03 22:01:57,956 - telegram.ext.Application - INFO - Application started
+2026-05-03T19:01:57.957101315Z 2026-05-03 22:01:57,957 - apscheduler.scheduler - INFO - Scheduler started
+2026-05-03T19:01:58.120278962Z 2026-05-03 22:01:58,120 - root - INFO - Webhook registered: https://chatgpt-telegram-service.onrender.com/webhook
+2026-05-03T19:01:58.120297843Z 2026-05-03 22:01:58,120 - root - INFO - Bot and Scheduler started successfully.
+2026-05-03T19:01:58.120367874Z 2026-05-03 22:01:58,120 - root - INFO - Background asyncio loop is running.
+2026-05-03T19:02:03.736562257Z ==> Your service is live 🎉
+2026-05-03T19:02:03.836885489Z ==> 
+2026-05-03T19:02:03.839594698Z ==> ///////////////////////////////////////////////////////////
+2026-05-03T19:02:03.842239596Z ==> 
+2026-05-03T19:02:03.845031766Z ==> Available at your primary URL https://chatgpt-telegram-service.onrender.com
+2026-05-03T19:02:03.847583073Z ==> 
+2026-05-03T19:02:03.850922481Z ==> ///////////////////////////////////////////////////////////
+2026-05-03T19:02:03.923637093Z 2026-05-03 22:02:03,923 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 22:02:03] "GET / HTTP/1.1" 200 -
+2026-05-03T19:05:29.741839567Z 2026-05-03 22:05:29,741 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 22:05:29] "HEAD / HTTP/1.1" 200 -
+2026-05-03T19:06:43.188250103Z 2026-05-03 22:06:43,188 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 22:06:43] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T19:06:44.200111478Z 2026-05-03 22:06:44,199 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 22:06:44] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T19:07:04.142268724Z ==> Detected service running on port 10000
+2026-05-03T19:07:04.2344305Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
+2026-05-03T19:08:37.258609985Z 2026-05-03 22:08:37,258 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 22:08:37] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T19:08:37.259997453Z 2026-05-03 22:08:37,259 - apscheduler.scheduler - INFO - Added job "501851181" to job store "default"
+2026-05-03T19:08:57.346855258Z 2026-05-03 22:08:57,346 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 22:08:57] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T19:08:59.899780922Z 2026-05-03 22:08:59,899 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 22:08:59] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T19:09:05.168262935Z 2026-05-03 22:09:05,168 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 22:09:05] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T19:09:06.742791514Z 2026-05-03 22:09:06,742 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 22:09:06] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T19:09:08.065711683Z 2026-05-03 22:09:08,065 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 22:09:08] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T19:09:10.049649075Z 2026-05-03 22:09:10,049 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 22:09:10] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T19:09:12.676095695Z 2026-05-03 22:09:12,675 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 22:09:12] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T19:09:13.422839464Z 2026-05-03 22:09:13,422 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 22:09:13] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T19:09:15.161198241Z 2026-05-03 22:09:15,160 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 22:09:15] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T19:09:16.792265442Z 2026-05-03 22:09:16,792 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 22:09:16] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T19:09:25.531004274Z 2026-05-03 22:09:25,530 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 22:09:25] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T19:09:25.531753464Z 2026-05-03 22:09:25,531 - apscheduler.scheduler - INFO - Removed job a6b33220fdb84bfea9e9e85dc3548072
+2026-05-03T19:09:25.532095104Z 2026-05-03 22:09:25,531 - apscheduler.scheduler - INFO - Added job "501851181" to job store "default"

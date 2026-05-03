@@ -28,16 +28,19 @@ async def set_reminder(minutes: int, text: str, convo_id: str = None):
     message_thread_id = chat_parts[1] if len(chat_parts) > 1 else None
 
     async def send_reminder():
+        print(f"DEBUG: Пытаюсь отправить напоминание в чат {chat_id}, текст: {text}")
         try:
             await globals.bot.send_message(
                 chat_id=chat_id,
                 text=f"🔔 Напоминание: {text}",
                 message_thread_id=message_thread_id
             )
+            print(f"DEBUG: Напоминание успешно отправлено в чат {chat_id}")
         except Exception as e:
-            print(f"Ошибка при отправке напоминания: {e}")
+            print(f"DEBUG: Ошибка при отправке напоминания: {e}")
 
     # Добавляем задачу в планировщик
-    globals.scheduler.add_job(send_reminder, 'date', run_time=run_time)
+    job = globals.scheduler.add_job(send_reminder, 'date', run_time=run_time)
+    print(f"DEBUG: Задача запланирована! ID: {job.id}, Время: {run_time}, Чат: {chat_id}")
     
     return f"Ок! Я напомню вам об этом через {minutes} мин. ({run_time.strftime('%H:%M:%S')})"
