@@ -50,6 +50,7 @@ import os
 import threading
 from flask import Flask, request
 lock = asyncio.Lock()
+event = asyncio.Event()
 stop_event = asyncio.Event()
 time_out = 600
 

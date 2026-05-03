@@ -1,165 +1,64 @@
-2026-05-03T14:25:22.149146305Z ==> Deploying...
-2026-05-03T14:25:22.218107684Z ==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
-2026-05-03T14:26:16.332112855Z 2026-05-03 17:26:16,331 - apscheduler.scheduler - INFO - Scheduler started
-2026-05-03T14:26:16.332216251Z 2026-05-03 17:26:16,332 - telegram.ext.Application - INFO - Application started
-2026-05-03T14:26:28.979215317Z ==> No open ports detected, continuing to scan...
-2026-05-03T14:26:29.051505417Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
-2026-05-03T14:27:29.615133701Z ==> No open ports detected, continuing to scan...
-2026-05-03T14:27:29.690664325Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
-2026-05-03T14:28:13.679791759Z 2026-05-03 17:28:13,679 - apscheduler.scheduler - INFO - Added job "501851181" to job store "default"
-2026-05-03T14:28:14.191988127Z 2026-05-03 17:28:14,191 - chatgpt_default - INFO - Request Body:
-2026-05-03T14:28:14.192010588Z {
-2026-05-03T14:28:14.192016458Z     "model": "gpt-4.1",
-2026-05-03T14:28:14.192020859Z     "messages": [
-2026-05-03T14:28:14.192025129Z         {
-2026-05-03T14:28:14.192029789Z             "role": "system",
-2026-05-03T14:28:14.19203441Z             "content": "Respond conversationally in Russian. Current date: [ 2026-05-03 ]"
-2026-05-03T14:28:14.19203928Z         },
-2026-05-03T14:28:14.19204329Z         {
-2026-05-03T14:28:14.1920473Z             "role": "user",
-2026-05-03T14:28:14.19205196Z             "content": "время?"
-2026-05-03T14:28:14.192056011Z         }
-2026-05-03T14:28:14.192060151Z     ],
-2026-05-03T14:28:14.192064181Z     "stream": true,
-2026-05-03T14:28:14.192068941Z     "temperature": 0.5,
-2026-05-03T14:28:14.192073252Z     "tool_choice": "auto",
-2026-05-03T14:28:14.192077612Z     "tools": [
-2026-05-03T14:28:14.192081742Z         {
-2026-05-03T14:28:14.192086113Z             "type": "function",
-2026-05-03T14:28:14.192090523Z             "function": {
-2026-05-03T14:28:14.192094873Z                 "name": "get_time",
-2026-05-03T14:28:14.192099653Z                 "description": "\n    获取当前日期时间及星期几\n\n    返回:\n        包含当前日期时间及星期几的字符串\n    "
-2026-05-03T14:28:14.192103903Z             }
-2026-05-03T14:28:14.192108094Z         },
-2026-05-03T14:28:14.192112494Z         {
-2026-05-03T14:28:14.192117044Z             "type": "function",
-2026-05-03T14:28:14.192121295Z             "function": {
-2026-05-03T14:28:14.192125415Z                 "name": "get_url_content",
-2026-05-03T14:28:14.192130275Z                 "description": "\n获取 url 的网页内容，以 markdown 格式返回给用户\n\n:param url: 要爬取的网页URL\n:return: 网页内容\n    ",
-2026-05-03T14:28:14.192134535Z                 "parameters": {
-2026-05-03T14:28:14.192138765Z                     "type": "object",
-2026-05-03T14:28:14.192143066Z                     "properties": {
-2026-05-03T14:28:14.192147196Z                         "url": {
-2026-05-03T14:28:14.192151166Z                             "type": "string"
-2026-05-03T14:28:14.192155306Z                         }
-2026-05-03T14:28:14.192159447Z                     },
-2026-05-03T14:28:14.192163637Z                     "required": [
-2026-05-03T14:28:14.192167727Z                         "url"
-2026-05-03T14:28:14.192172378Z                     ]
-2026-05-03T14:28:14.192176868Z                 }
-2026-05-03T14:28:14.192181048Z             }
-2026-05-03T14:28:14.192185408Z         },
-2026-05-03T14:28:14.19220819Z         {
-2026-05-03T14:28:14.19221245Z             "type": "function",
-2026-05-03T14:28:14.19221673Z             "function": {
-2026-05-03T14:28:14.19222089Z                 "name": "get_search_results",
-2026-05-03T14:28:14.192228261Z                 "description": "\n    执行网络搜索并返回搜索结果文本\n\n    参数:\n        query: 查询语句，包含用户想要搜索的内容\n\n    返回:\n        异步生成器，依次产生:\n        - 搜索状态消息 (\"message_search_stage_2\", \"message_search_stage_3\", \"message_search_stage_4\")\n        - 最终的搜索结果文本列表\n\n    说明:\n        - 根据查询语句自动搜索结果\n        - 使用多线程并行抓取网页内容\n        - 在搜索过程中通过yield返回状态更新\n    ",
-2026-05-03T14:28:14.192251262Z                 "parameters": {
-2026-05-03T14:28:14.192254422Z                     "type": "object",
-2026-05-03T14:28:14.192259123Z                     "properties": {
-2026-05-03T14:28:14.192262023Z                         "query": {
-2026-05-03T14:28:14.192264693Z                             "type": "string"
-2026-05-03T14:28:14.192267223Z                         }
-2026-05-03T14:28:14.192269643Z                     },
-2026-05-03T14:28:14.192272143Z                     "required": [
-2026-05-03T14:28:14.192274653Z                         "query"
-2026-05-03T14:28:14.192277094Z                     ]
-2026-05-03T14:28:14.192279594Z                 }
-2026-05-03T14:28:14.192282064Z             }
-2026-05-03T14:28:14.192284694Z         }
-2026-05-03T14:28:14.192287264Z     ],
-2026-05-03T14:28:14.192289994Z     "stream_options": {
-2026-05-03T14:28:14.192292694Z         "include_usage": true
-2026-05-03T14:28:14.192295475Z     }
-2026-05-03T14:28:14.192298045Z }
-2026-05-03T14:28:15.741986231Z 2026-05-03 17:28:15,741 - chatgpt_default - INFO - total_tokens: 260
-2026-05-03T14:28:15.742028164Z 2026-05-03 17:28:15,741 - chatgpt_default - INFO - function_full_response: {}
-2026-05-03T14:28:15.74213794Z 2026-05-03 17:28:15,742 - chatgpt_default - INFO - Tool use, calling: get_time
-2026-05-03T14:28:15.819524034Z 2026-05-03 17:28:15,819 - chatgpt_default - INFO - Request Body:
-2026-05-03T14:28:15.819552896Z {
-2026-05-03T14:28:15.819557946Z     "model": "gpt-4.1",
-2026-05-03T14:28:15.819561206Z     "messages": [
-2026-05-03T14:28:15.819564256Z         {
-2026-05-03T14:28:15.819567757Z             "role": "system",
-2026-05-03T14:28:15.819571327Z             "content": "Respond conversationally in Russian. Current date: [ 2026-05-03 ]"
-2026-05-03T14:28:15.819574597Z         },
-2026-05-03T14:28:15.819577447Z         {
-2026-05-03T14:28:15.819580377Z             "role": "user",
-2026-05-03T14:28:15.819584068Z             "content": "время?"
-2026-05-03T14:28:15.819587468Z         },
-2026-05-03T14:28:15.819590518Z         {
-2026-05-03T14:28:15.819593488Z             "role": "assistant",
-2026-05-03T14:28:15.819596418Z             "tool_calls": [
-2026-05-03T14:28:15.819599599Z                 {
-2026-05-03T14:28:15.819602639Z                     "id": "get_time_single",
-2026-05-03T14:28:15.819606019Z                     "type": "function",
-2026-05-03T14:28:15.819609229Z                     "function": {
-2026-05-03T14:28:15.819612519Z                         "name": "get_time",
-2026-05-03T14:28:15.81961487Z                         "arguments": "{}"
-2026-05-03T14:28:15.81961693Z                     }
-2026-05-03T14:28:15.81961893Z                 }
-2026-05-03T14:28:15.81962089Z             ]
-2026-05-03T14:28:15.81962289Z         },
-2026-05-03T14:28:15.81962491Z         {
-2026-05-03T14:28:15.81962692Z             "role": "tool",
-2026-05-03T14:28:15.8196289Z             "tool_call_id": "get_time_single",
-2026-05-03T14:28:15.819630991Z             "content": "今天是：2026-05-03，现在的时间是：22:28:15，星期日"
-2026-05-03T14:28:15.819632991Z         }
-2026-05-03T14:28:15.819634961Z     ],
-2026-05-03T14:28:15.819637051Z     "stream": true,
-2026-05-03T14:28:15.819639051Z     "temperature": 0.5,
-2026-05-03T14:28:15.819640991Z     "tool_choice": "auto",
-2026-05-03T14:28:15.819645481Z     "tools": [
-2026-05-03T14:28:15.819647581Z         {
-2026-05-03T14:28:15.819649641Z             "type": "function",
-2026-05-03T14:28:15.819666422Z             "function": {
-2026-05-03T14:28:15.819668553Z                 "name": "get_time",
-2026-05-03T14:28:15.819672673Z                 "description": "\n    获取当前日期时间及星期几\n\n    返回:\n        包含当前日期时间及星期几的字符串\n    "
-2026-05-03T14:28:15.819674713Z             }
-2026-05-03T14:28:15.819676713Z         },
-2026-05-03T14:28:15.819678663Z         {
-2026-05-03T14:28:15.819680643Z             "type": "function",
-2026-05-03T14:28:15.819682623Z             "function": {
-2026-05-03T14:28:15.819684594Z                 "name": "get_url_content",
-2026-05-03T14:28:15.819687314Z                 "description": "\n获取 url 的网页内容，以 markdown 格式返回给用户\n\n:param url: 要爬取的网页URL\n:return: 网页内容\n    ",
-2026-05-03T14:28:15.819689374Z                 "parameters": {
-2026-05-03T14:28:15.819691364Z                     "type": "object",
-2026-05-03T14:28:15.819693294Z                     "properties": {
-2026-05-03T14:28:15.819695264Z                         "url": {
-2026-05-03T14:28:15.819697194Z                             "type": "string"
-2026-05-03T14:28:15.819699135Z                         }
-2026-05-03T14:28:15.819701104Z                     },
-2026-05-03T14:28:15.819704315Z                     "required": [
-2026-05-03T14:28:15.819707725Z                         "url"
-2026-05-03T14:28:15.819711285Z                     ]
-2026-05-03T14:28:15.819714675Z                 }
-2026-05-03T14:28:15.819718005Z             }
-2026-05-03T14:28:15.819721266Z         },
-2026-05-03T14:28:15.819724706Z         {
-2026-05-03T14:28:15.819728226Z             "type": "function",
-2026-05-03T14:28:15.819730216Z             "function": {
-2026-05-03T14:28:15.819732216Z                 "name": "get_search_results",
-2026-05-03T14:28:15.819735037Z                 "description": "\n    执行网络搜索并返回搜索结果文本\n\n    参数:\n        query: 查询语句，包含用户想要搜索的内容\n\n    返回:\n        异步生成器，依次产生:\n        - 搜索状态消息 (\"message_search_stage_2\", \"message_search_stage_3\", \"message_search_stage_4\")\n        - 最终的搜索结果文本列表\n\n    说明:\n        - 根据查询语句自动搜索结果\n        - 使用多线程并行抓取网页内容\n        - 在搜索过程中通过yield返回状态更新\n    ",
-2026-05-03T14:28:15.819737077Z                 "parameters": {
-2026-05-03T14:28:15.819739047Z                     "type": "object",
-2026-05-03T14:28:15.819740977Z                     "properties": {
-2026-05-03T14:28:15.819742987Z                         "query": {
-2026-05-03T14:28:15.819744937Z                             "type": "string"
-2026-05-03T14:28:15.819746907Z                         }
-2026-05-03T14:28:15.819748907Z                     },
-2026-05-03T14:28:15.819750887Z                     "required": [
-2026-05-03T14:28:15.819752878Z                         "query"
-2026-05-03T14:28:15.819754848Z                     ]
-2026-05-03T14:28:15.819756798Z                 }
-2026-05-03T14:28:15.819758758Z             }
-2026-05-03T14:28:15.819760708Z         }
-2026-05-03T14:28:15.819762678Z     ],
-2026-05-03T14:28:15.819764688Z     "stream_options": {
-2026-05-03T14:28:15.819766678Z         "include_usage": true
-2026-05-03T14:28:15.819768648Z     }
-2026-05-03T14:28:15.819770648Z }
-2026-05-03T14:28:16.826463561Z 2026-05-03 17:28:16,826 - chatgpt_default - INFO - total_tokens: 260
-2026-05-03T14:28:30.276375201Z ==> No open ports detected, continuing to scan...
-2026-05-03T14:28:30.356077245Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
-2026-05-03T14:29:32.504128453Z ==> No open ports detected, continuing to scan...
-2026-05-03T14:29:32.616135853Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
+
+2026-05-03T14:54:58.746001726Z ==> Deploying...
+2026-05-03T14:54:58.855420364Z ==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
+2026-05-03T14:55:15.77809129Z 2026-05-03 17:55:15,777 - root - INFO - Starting Flask server on port 10000...
+2026-05-03T14:55:16.272641817Z  * Serving Flask app 'bot'
+2026-05-03T14:55:16.272668238Z  * Debug mode: off
+2026-05-03T14:55:16.276229754Z 2026-05-03 17:55:16,276 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+2026-05-03T14:55:16.276245115Z  * Running on all addresses (0.0.0.0)
+2026-05-03T14:55:16.276248855Z  * Running on http://127.0.0.1:10000
+2026-05-03T14:55:16.276252035Z  * Running on http://10.196.75.161:10000
+2026-05-03T14:55:16.276284786Z 2026-05-03 17:55:16,276 - werkzeug - INFO - Press CTRL+C to quit
+2026-05-03T14:55:16.307212965Z 2026-05-03 17:55:16,307 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:55:16] "HEAD / HTTP/1.1" 200 -
+2026-05-03T14:55:16.756037441Z 2026-05-03 17:55:16,755 - apscheduler.scheduler - INFO - Scheduler started
+2026-05-03T14:55:16.756095122Z 2026-05-03 17:55:16,756 - telegram.ext.Application - INFO - Application started
+2026-05-03T14:55:16.931585207Z 2026-05-03 17:55:16,931 - root - INFO - Webhook registered: https://chatgpt-telegram-service.onrender.com/webhook
+2026-05-03T14:55:16.931621717Z 2026-05-03 17:55:16,931 - root - INFO - Background asyncio loop is running.
+2026-05-03T14:55:19.550690844Z ==> Your service is live 🎉
+2026-05-03T14:55:19.614225647Z 2026-05-03 17:55:19,614 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:55:19] "GET / HTTP/1.1" 200 -
+2026-05-03T14:55:19.678039023Z ==> 
+2026-05-03T14:55:19.680881824Z ==> ///////////////////////////////////////////////////////////
+2026-05-03T14:55:19.684078251Z ==> 
+2026-05-03T14:55:19.686478994Z ==> Available at your primary URL https://chatgpt-telegram-service.onrender.com
+2026-05-03T14:55:19.68908505Z ==> 
+2026-05-03T14:55:19.692135965Z ==> ///////////////////////////////////////////////////////////
+2026-05-03T14:56:36.275185266Z 2026-05-03 17:56:36,274 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:36] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T14:56:37.635455654Z 2026-05-03 17:56:37,635 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:37] "HEAD / HTTP/1.1" 200 -
+2026-05-03T14:56:39.88519876Z 2026-05-03 17:56:39,885 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:39] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T14:56:43.121978552Z 2026-05-03 17:56:43,121 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:43] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T14:56:47.022461771Z 2026-05-03 17:56:47,022 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:47] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T14:56:47.614088622Z 2026-05-03 17:56:47,613 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:47] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T14:56:48.99239046Z 2026-05-03 17:56:48,992 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:48] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T14:56:49.875767761Z 2026-05-03 17:56:49,875 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:49] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T14:56:51.510087749Z 2026-05-03 17:56:51,509 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:51] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T14:56:53.456337975Z 2026-05-03 17:56:53,456 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:53] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T14:56:54.868468731Z 2026-05-03 17:56:54,868 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:54] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T14:56:56.212793756Z 2026-05-03 17:56:56,212 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:56] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T14:56:57.703886305Z 2026-05-03 17:56:57,703 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:57] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T14:57:06.470641281Z 2026-05-03 17:57:06,470 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:57:06] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T14:57:06.472536842Z 2026-05-03 17:57:06,472 - apscheduler.scheduler - INFO - Added job "501851181" to job store "default"
+2026-05-03T14:57:06.956997504Z 2026-05-03 17:57:06,955 - root - WARNING - Update "Update(message=Message(channel_chat_created=False, chat=Chat(first_name='Вик Аник', id=501851181, type=<ChatType.PRIVATE>, username='anivik'), date=datetime.datetime(2026, 5, 3, 14, 57, 6, tzinfo=datetime.timezone.utc), delete_chat_photo=False, from_user=User(first_name='Вик Аник', id=501851181, is_bot=False, language_code='ru', username='anivik'), group_chat_created=False, message_id=528, supergroup_chat_created=False, text='время сейчас'), update_id=116271332)" caused error "name 'event' is not defined"
+2026-05-03T14:57:06.957056386Z 2026-05-03 17:57:06,956 - root - WARNING - Error traceback: Traceback (most recent call last):
+2026-05-03T14:57:06.957060006Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_application.py", line 1182, in __create_task_callback
+2026-05-03T14:57:06.957062776Z     return await coroutine  # type: ignore[misc]
+2026-05-03T14:57:06.957065356Z            ^^^^^^^^^^^^^^^
+2026-05-03T14:57:06.957070596Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_handlers/basehandler.py", line 159, in handle_update
+2026-05-03T14:57:06.957072606Z     return await self.callback(update, context)
+2026-05-03T14:57:06.957074536Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-03T14:57:06.957077626Z   File "/home/utils/decorators.py", line 102, in wrapper
+2026-05-03T14:57:06.957079566Z     return await func(*args, **kwargs)
+2026-05-03T14:57:06.957081446Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-03T14:57:06.957083386Z   File "/home/utils/decorators.py", line 43, in wrapper
+2026-05-03T14:57:06.957085257Z     return await func(*args, **kwargs)
+2026-05-03T14:57:06.957087186Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-03T14:57:06.957089097Z   File "/home/utils/decorators.py", line 29, in wrapper
+2026-05-03T14:57:06.957091067Z     return await func(*args, **kwargs)
+2026-05-03T14:57:06.957095457Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-03T14:57:06.957097447Z   File "/home/utils/decorators.py", line 92, in wrapper
+2026-05-03T14:57:06.957099357Z     return await func(*args, **kwargs)
+2026-05-03T14:57:06.957101247Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-03T14:57:06.957103177Z   File "/home/bot.py", line 160, in command_bot
+2026-05-03T14:57:06.957105197Z     event.set()
+2026-05-03T14:57:06.957107207Z     ^^^^^
+2026-05-03T14:57:06.957109387Z NameError: name 'event' is not defined
+2026-05-03T14:57:06.957111347Z 
