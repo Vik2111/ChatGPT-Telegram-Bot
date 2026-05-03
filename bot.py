@@ -1012,34 +1012,33 @@ if __name__ == '__main__':
     # Запуск бота через Flask (поддержка UptimeRobot и Render)
     port = int(os.getenv("PORT", PORT))
     
-    # Инициализация цикла событий для фоновой работы бота
-    main_loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(main_loop)
-    
-    # Запуск бота через Flask (поддержка UptimeRobot и Render)
-    port = int(os.getenv("PORT", PORT))
-    
-    # Создаем и настраиваем цикл событий
+    # Создаем и настраиваем цикл событий для фоновой работы бота
     main_loop = asyncio.new_event_loop()
     
     def start_background_loop(loop):
         asyncio.set_event_loop(loop)
-        # Инициализация и запуск приложения внутри цикла
+        
         async def start_all():
-            await application.initialize()
-            await application.start()
-            scheduler.start()
-            
-            # Автоматическая настройка вебхука
-            render_url = os.getenv("RENDER_EXTERNAL_URL")
-            webhook_base_url = WEB_HOOK or render_url
-            if webhook_base_url:
-                if not webhook_base_url.startswith("http"):
-                    webhook_base_url = f"https://{webhook_base_url}"
-                webhook_url = f"{webhook_base_url.rstrip('/')}/webhook"
-                await application.bot.set_webhook(url=webhook_url, drop_pending_updates=True)
-                logger.info(f"Webhook registered: {webhook_url}")
+            try:
+                await application.initialize()
+                await application.start()
+                scheduler.start()
+                
+                # Автоматическая настройка вебхука
+                render_url = os.getenv("RENDER_EXTERNAL_URL")
+                webhook_base_url = WEB_HOOK or render_url
+                if webhook_base_url:
+                    if not webhook_base_url.startswith("http"):
+                        webhook_base_url = f"https://{webhook_base_url}"
+                    webhook_url = f"{webhook_base_url.rstrip('/')}/webhook"
+                    await application.bot.set_webhook(url=webhook_url, drop_pending_updates=True)
+                    logger.info(f"Webhook registered: {webhook_url}")
+                
+                logger.info("Bot and Scheduler started successfully.")
+            except Exception as e:
+                logger.error(f"Error during bot startup: {e}")
 
+        # Запускаем инициализацию и входим в бесконечный цикл
         loop.run_until_complete(start_all())
         logger.info("Background asyncio loop is running.")
         loop.run_forever()
