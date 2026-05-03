@@ -1,72 +1,3 @@
-
-2026-05-03T18:20:13.854655657Z ==> Deploying...
-2026-05-03T18:20:13.929453104Z ==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
-2026-05-03T18:20:26.800536462Z Traceback (most recent call last):
-2026-05-03T18:20:26.800582613Z   File "/home/bot.py", line 15, in <module>
-2026-05-03T18:20:26.800603354Z     scheduler = AsyncIOScheduler()
-2026-05-03T18:20:26.800611764Z                 ^^^^^^^^^^^^^^^^^^
-2026-05-03T18:20:26.800621284Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/base.py", line 125, in __init__
-2026-05-03T18:20:26.800746617Z     self.configure(gconfig, **options)
-2026-05-03T18:20:26.800761677Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/base.py", line 174, in configure
-2026-05-03T18:20:26.800904581Z     self._configure(config)
-2026-05-03T18:20:26.800928832Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/asyncio.py", line 54, in _configure
-2026-05-03T18:20:26.800999573Z     super()._configure(config)
-2026-05-03T18:20:26.801004053Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/base.py", line 903, in _configure
-2026-05-03T18:20:26.801211119Z     self.timezone = astimezone(config.pop("timezone", None)) or get_localzone()
-2026-05-03T18:20:26.801217628Z                                                                 ^^^^^^^^^^^^^^^
-2026-05-03T18:20:26.801221849Z   File "/usr/local/lib/python3.11/site-packages/tzlocal/unix.py", line 237, in get_localzone
-2026-05-03T18:20:26.801348422Z     _cache_tz = _get_localzone()
-2026-05-03T18:20:26.801353682Z                 ^^^^^^^^^^^^^^^^
-2026-05-03T18:20:26.801357902Z   File "/usr/local/lib/python3.11/site-packages/tzlocal/unix.py", line 190, in _get_localzone
-2026-05-03T18:20:26.801470345Z     tzenv = utils._tz_from_env()
-2026-05-03T18:20:26.801475435Z             ^^^^^^^^^^^^^^^^^^^^
-2026-05-03T18:20:26.801479355Z   File "/usr/local/lib/python3.11/site-packages/tzlocal/utils.py", line 105, in _tz_from_env
-2026-05-03T18:20:26.801592038Z     raise zoneinfo.ZoneInfoNotFoundError(
-2026-05-03T18:20:26.801598028Z zoneinfo._common.ZoneInfoNotFoundError: 'tzlocal() does not support non-zoneinfo timezones like 1. \nPlease use a timezone in the form of Continent/City'
-2026-05-03T18:20:30.481100021Z ==> Exited with status 1
-2026-05-03T18:20:30.483443454Z ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
-2026-05-03T18:20:32.122043467Z Traceback (most recent call last):
-2026-05-03T18:20:32.122095418Z   File "/home/bot.py", line 15, in <module>
-2026-05-03T18:20:32.122109869Z     scheduler = AsyncIOScheduler()
-2026-05-03T18:20:32.122113619Z                 ^^^^^^^^^^^^^^^^^^
-2026-05-03T18:20:32.122117359Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/base.py", line 125, in __init__
-2026-05-03T18:20:32.122240842Z     self.configure(gconfig, **options)
-2026-05-03T18:20:32.122247702Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/base.py", line 174, in configure
-2026-05-03T18:20:32.122335924Z     self._configure(config)
-2026-05-03T18:20:32.122347314Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/asyncio.py", line 54, in _configure
-2026-05-03T18:20:32.122446177Z     super()._configure(config)
-2026-05-03T18:20:32.122455077Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/base.py", line 903, in _configure
-2026-05-03T18:20:32.122657962Z     self.timezone = astimezone(config.pop("timezone", None)) or get_localzone()
-2026-05-03T18:20:32.122673072Z                                                                 ^^^^^^^^^^^^^^^
-2026-05-03T18:20:32.122677042Z   File "/usr/local/lib/python3.11/site-packages/tzlocal/unix.py", line 237, in get_localzone
-2026-05-03T18:20:32.122816646Z     _cache_tz = _get_localzone()
-2026-05-03T18:20:32.122823436Z                 ^^^^^^^^^^^^^^^^
-2026-05-03T18:20:32.122826906Z   File "/usr/local/lib/python3.11/site-packages/tzlocal/unix.py", line 190, in _get_localzone
-2026-05-03T18:20:32.207969263Z     tzenv = utils._tz_from_env()
-2026-05-03T18:20:32.207989303Z             ^^^^^^^^^^^^^^^^^^^^
-2026-05-03T18:20:32.207992763Z   File "/usr/local/lib/python3.11/site-packages/tzlocal/utils.py", line 105, in _tz_from_env
-2026-05-03T18:20:32.208127756Z     raise zoneinfo.ZoneInfoNotFoundError(
-2026-05-03T18:20:32.208134887Z zoneinfo._common.ZoneInfoNotFoundError: 'tzlocal() does not support non-zoneinfo timezones like 1. \nPlease use a timezone in the form of Continent/City'
-2026-05-03T18:22:17.410846223Z ==> Deploying...
-2026-05-03T18:22:17.48617678Z ==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
-2026-05-03T18:22:42.487111206Z Traceback (most recent call last):
-2026-05-03T18:22:42.487150538Z   File "/home/bot.py", line 972, in <module>
-2026-05-03T18:22:42.487417514Z     scheduler.start()
-2026-05-03T18:22:42.487430285Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/asyncio.py", line 36, in start
-2026-05-03T18:22:42.487497509Z     self._eventloop = asyncio.get_running_loop()
-2026-05-03T18:22:42.48750657Z                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T18:22:42.48751014Z RuntimeError: no running event loop
-2026-05-03T18:22:45.803145272Z ==> Exited with status 1
-2026-05-03T18:22:45.807372159Z ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
-2026-05-03T18:22:46.86583707Z 2026-05-03 21:22:46,865 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:22:46] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T18:22:56.1623865Z Traceback (most recent call last):
-2026-05-03T18:22:56.162432333Z   File "/home/bot.py", line 972, in <module>
-2026-05-03T18:22:56.162772503Z     scheduler.start()
-2026-05-03T18:22:56.162782644Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/asyncio.py", line 36, in start
-2026-05-03T18:22:56.162871299Z     self._eventloop = asyncio.get_running_loop()
-2026-05-03T18:22:56.162911591Z                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T18:22:56.162915081Z RuntimeError: no running event loop
-2026-05-03T18:23:09.312769343Z 2026-05-03 21:23:09,312 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:23:09] "POST /webhook HTTP/1.1" 200 -
 2026-05-03T18:23:37.246992912Z 2026-05-03 21:23:37,246 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:23:37] "POST /webhook HTTP/1.1" 200 -
 2026-05-03T18:23:37.247819058Z 2026-05-03 21:23:37,247 - apscheduler.scheduler - INFO - Removed job 2b069f7dc38a4cf6be1274ed59d7e4c9
 2026-05-03T18:23:37.248124327Z 2026-05-03 21:23:37,248 - apscheduler.scheduler - INFO - Added job "501851181" to job store "default"
@@ -78,3 +9,42 @@
 2026-05-03T18:24:24.950722813Z 2026-05-03 21:24:24,950 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:24:24] "POST /webhook HTTP/1.1" 200 -
 2026-05-03T18:24:24.951294112Z 2026-05-03 21:24:24,951 - apscheduler.scheduler - INFO - Removed job edb6ea8e169648939c77cab6ebb92a4e
 2026-05-03T18:24:24.95156875Z 2026-05-03 21:24:24,951 - apscheduler.scheduler - INFO - Added job "501851181" to job store "default"
+2026-05-03T18:24:52.18905347Z 2026-05-03 21:24:52,188 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:24:52] "HEAD / HTTP/1.1" 200 -
+2026-05-03T18:29:57.234014409Z 2026-05-03 21:29:57,233 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:29:57] "HEAD / HTTP/1.1" 200 -
+2026-05-03T18:35:02.425954622Z 2026-05-03 21:35:02,425 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:35:02] "HEAD / HTTP/1.1" 200 -
+2026-05-03T18:36:42.993315246Z ==> Deploying...
+2026-05-03T18:36:43.054577223Z ==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
+2026-05-03T18:37:11.212578401Z  * Running on http://127.0.0.1:10000
+2026-05-03T18:37:11.212581021Z  * Running on http://10.195.34.189:10000
+2026-05-03T18:37:11.212591212Z 2026-05-03 21:37:11,212 - werkzeug - INFO - Press CTRL+C to quit
+2026-05-03T18:37:11.492255885Z 2026-05-03 21:37:11,492 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:37:11] "HEAD / HTTP/1.1" 200 -
+2026-05-03T18:37:11.705139891Z 2026-05-03 21:37:11,704 - apscheduler.scheduler - INFO - Scheduler started
+2026-05-03T18:37:11.705180472Z 2026-05-03 21:37:11,705 - telegram.ext.Application - INFO - Application started
+2026-05-03T18:37:11.705311376Z Exception in thread Thread-1 (start_background_loop):
+2026-05-03T18:37:11.705317176Z Traceback (most recent call last):
+2026-05-03T18:37:11.705320606Z   File "/usr/local/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+2026-05-03T18:37:11.705553832Z     self.run()
+2026-05-03T18:37:11.705561372Z   File "/usr/local/lib/python3.11/threading.py", line 982, in run
+2026-05-03T18:37:11.705747866Z     self._target(*self._args, **self._kwargs)
+2026-05-03T18:37:11.705756497Z   File "/home/bot.py", line 1032, in start_background_loop
+2026-05-03T18:37:11.706083514Z     scheduler.start()
+2026-05-03T18:37:11.706092025Z   File "/usr/local/lib/python3.11/site-packages/apscheduler/schedulers/asyncio.py", line 36, in start
+2026-05-03T18:37:11.706171397Z     self._eventloop = asyncio.get_running_loop()
+2026-05-03T18:37:11.706179397Z                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-05-03T18:37:11.706182327Z RuntimeError: no running event loop
+2026-05-03T18:37:14.060841118Z ==> Your service is live 🎉
+2026-05-03T18:37:14.1899416Z 2026-05-03 21:37:14,189 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:37:14] "GET / HTTP/1.1" 200 -
+2026-05-03T18:37:14.235441089Z ==> 
+2026-05-03T18:37:14.239654559Z ==> ///////////////////////////////////////////////////////////
+2026-05-03T18:37:14.243735766Z ==> 
+2026-05-03T18:37:14.248015916Z ==> Available at your primary URL https://chatgpt-telegram-service.onrender.com
+2026-05-03T18:37:14.252718792Z ==> 
+2026-05-03T18:37:14.25610881Z ==> ///////////////////////////////////////////////////////////
+2026-05-03T18:40:06.703307796Z 2026-05-03 21:40:06,703 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:40:06] "HEAD / HTTP/1.1" 200 -
+2026-05-03T18:42:20.503852282Z ==> Detected service running on port 10000
+2026-05-03T18:42:20.673908537Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
+2026-05-03T18:42:47.310565858Z 2026-05-03 21:42:47,310 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:42:47] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T18:45:09.68946297Z 2026-05-03 21:45:09,689 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:45:09] "HEAD / HTTP/1.1" 200 -
+2026-05-03T18:47:52.680110129Z 2026-05-03 21:47:52,679 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:47:52] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T18:48:13.708913707Z 2026-05-03 21:48:13,708 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:48:13] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T18:48:15.209661113Z 2026-05-03 21:48:15,208 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 21:48:15] "POST /webhook HTTP/1.1" 200 -

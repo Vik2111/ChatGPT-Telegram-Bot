@@ -1025,22 +1025,22 @@ if __name__ == '__main__':
     def start_background_loop(loop):
         asyncio.set_event_loop(loop)
         # Инициализация и запуск приложения внутри цикла
-        loop.run_until_complete(application.initialize())
-        loop.run_until_complete(application.start())
-        
-        # Start scheduler inside the loop
-        scheduler.start()
-        
-        # Автоматическая настройка вебхука
-        render_url = os.getenv("RENDER_EXTERNAL_URL")
-        webhook_base_url = WEB_HOOK or render_url
-        if webhook_base_url:
-            if not webhook_base_url.startswith("http"):
-                webhook_base_url = f"https://{webhook_base_url}"
-            webhook_url = f"{webhook_base_url.rstrip('/')}/webhook"
-            loop.run_until_complete(application.bot.set_webhook(url=webhook_url, drop_pending_updates=True))
-            logger.info(f"Webhook registered: {webhook_url}")
+        async def start_all():
+            await application.initialize()
+            await application.start()
+            scheduler.start()
             
+            # Автоматическая настройка вебхука
+            render_url = os.getenv("RENDER_EXTERNAL_URL")
+            webhook_base_url = WEB_HOOK or render_url
+            if webhook_base_url:
+                if not webhook_base_url.startswith("http"):
+                    webhook_base_url = f"https://{webhook_base_url}"
+                webhook_url = f"{webhook_base_url.rstrip('/')}/webhook"
+                await application.bot.set_webhook(url=webhook_url, drop_pending_updates=True)
+                logger.info(f"Webhook registered: {webhook_url}")
+
+        loop.run_until_complete(start_all())
         logger.info("Background asyncio loop is running.")
         loop.run_forever()
 
