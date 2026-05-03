@@ -918,46 +918,45 @@ if __name__ == '__main__':
     application.add_handler(CommandHandler("model", change_model))
     application.add_handler(InlineQueryHandler(inlinequery))
     application.add_handler(CallbackQueryHandler(button_press))
-    application.add_handler(MessageHandler((filters.TEXT | filters.VOICE) & ~filters.COMMAND, lambda update, context: command_bot(update, context, has_command=False), block = False))
+    application.add_handler(MessageHandler((filters.TEXT | filters.VOICE) & ~filters.COMMAND, lambda update, context: command_bot(update, context, has_command=False), block=False))
     application.add_handler(MessageHandler(
         filters.CAPTION &
-        (
-            (filters.PHOTO & ~filters.COMMAND) |
-            (
-                filters.Document.PDF |
-                filters.Document.TXT |
-                filters.Document.DOC |
-                filters.Document.FileExtension("jpg") |
-                filters.Document.FileExtension("jpeg") |
-                filters.Document.FileExtension("png") |
-                filters.Document.FileExtension("md") |
-                filters.Document.FileExtension("py") |
-                filters.Document.FileExtension("yml")
-            )
-        ), lambda update, context: command_bot(update, context, has_command=False)))
+        (filters.PHOTO & ~filters.COMMAND) |
+        filters.Document.PDF |
+        filters.Document.TXT |
+        filters.Document.DOC |
+        filters.Document.FileExtension("jpg") |
+        filters.Document.FileExtension("jpeg") |
+        filters.Document.FileExtension("png") |
+        filters.Document.FileExtension("md") |
+        filters.Document.FileExtension("py") |
+        filters.Document.FileExtension("yml"),
+        lambda update, context: command_bot(update, context, has_command=False)
+    ))
     application.add_handler(MessageHandler(
         ~filters.CAPTION &
-        (
-            (filters.PHOTO & ~filters.COMMAND) |
-            (
-                filters.Document.PDF |
-                filters.Document.TXT |
-                filters.Document.DOC |
-                filters.Document.FileExtension("jpg") |
-                filters.Document.FileExtension("jpeg") |
-                filters.Document.FileExtension("png") |
-                filters.Document.FileExtension("md") |
-                filters.Document.FileExtension("py") |
-                filters.Document.FileExtension("yml") |
-                filters.AUDIO |
-                filters.Document.FileExtension("wav")
-            )
-        ), handle_file))
+        (filters.PHOTO & ~filters.COMMAND) |
+        filters.Document.PDF |
+        filters.Document.TXT |
+        filters.Document.DOC |
+        filters.Document.FileExtension("jpg") |
+        filters.Document.FileExtension("jpeg") |
+        filters.Document.FileExtension("png") |
+        filters.Document.FileExtension("md") |
+        filters.Document.FileExtension("py") |
+        filters.Document.FileExtension("yml") |
+        filters.AUDIO |
+        filters.Document.FileExtension("wav"),
+        handle_file
+    ))
     application.add_handler(MessageHandler(filters.COMMAND, unknown))
     application.add_error_handler(error)
 
-    if WEB_HOOK:
-        print("WEB_HOOK:", WEB_HOOK)
-        application.run_webhook("0.0.0.0", PORT, webhook_url=WEB_HOOK)
-    else:
-        application.run_polling(timeout=time_out)
+    print("WEB_HOOK:", WEB_HOOK)
+    application.run_webhook(
+        listen="0.0.0.0",
+        port=int(PORT),
+        webhook_url=WEB_HOOK,
+        url_path="webhook",
+    )
+
