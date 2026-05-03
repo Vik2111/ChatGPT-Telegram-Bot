@@ -4,6 +4,17 @@ sys.dont_write_bytecode = True
 import base64
 import logging
 import traceback
+import threading
+import os
+import asyncio
+from flask import Flask, request
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from utils import globals
+
+# Initialize scheduler
+scheduler = AsyncIOScheduler()
+globals.scheduler = scheduler
+
 import utils.decorators as decorators
 
 from md2tgmd.src.md2tgmd import escape, split_code, replace_all
@@ -955,6 +966,10 @@ if __name__ == '__main__':
         .post_init(post_init)
         .build()
     )
+
+    # Set global bot instance and start scheduler
+    globals.bot = application.bot
+    scheduler.start()
 
     application.add_handler(CommandHandler("info", info))
     application.add_handler(CommandHandler("start", start))

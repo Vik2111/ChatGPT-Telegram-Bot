@@ -53,6 +53,11 @@ async def get_tools_result_async(function_call_name, function_full_response, eng
             function_response = "无法找到相关信息，停止使用 tools"
 
     elif function_to_call:
+        # Check if the function accepts convo_id
+        sig = inspect.signature(function_to_call)
+        if 'convo_id' in sig.parameters:
+            call_args['convo_id'] = convo_id
+            
         if inspect.iscoroutinefunction(function_to_call):
             function_response = await function_to_call(**call_args)
         else:
