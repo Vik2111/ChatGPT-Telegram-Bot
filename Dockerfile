@@ -1,13 +1,19 @@
 FROM yym68686/chatgpt:latest
 
-# Копируем всё в корень, как в оригинальном образе
+# Отключаем интерактивные запросы
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Копируем всё в корень
 COPY . .
 
-# Устанавливаем зависимости
-RUN pip install --no-cache-dir -r requirements.txt
+# Устанавливаем зависимости с принудительным обновлением
+RUN pip install --upgrade --no-cache-dir -r requirements.txt
 
-# Устанавливаем переменную окружения, чтобы Python видел все папки
+# Устанавливаем PYTHONPATH
 ENV PYTHONPATH=$PYTHONPATH:.
+
+# Явно указываем порт для Flask (Render его сам подставит, но так надежнее)
+ENV PORT=10000
 
 # Запускаем бота
 CMD ["python", "bot.py"]
