@@ -90,6 +90,13 @@ time_stamps = defaultdict(lambda: [])
 @decorators.Authorization
 @decorators.APICheck
 async def command_bot(update, context, title="", has_command=True):
+    print(f"DEBUG: command_bot called for user {update.effective_user.id if update.effective_user else 'unknown'}", flush=True)
+    # Тестовый ответ для проверки связи
+    try:
+        await context.bot.send_message(chat_id=update.effective_chat.id, text="Сообщение получено, начинаю обработку...")
+    except Exception as e:
+        print(f"DEBUG: Failed to send test message: {e}", flush=True)
+
     stop_event.clear()
     message, rawtext, image_url, chatid, messageid, reply_to_message_text, update_message, message_thread_id, convo_id, file_url, reply_to_message_file_content, voice_text = await GetMesageInfo(update, context)
 
@@ -909,12 +916,13 @@ def telegram_webhook():
     global application, main_loop
 
     if application is None or main_loop is None:
-        logger.error("Webhook called but application or main_loop is None")
+        print("DEBUG: Webhook called but application or main_loop is None", flush=True)
         return "Application not ready", 503
 
     try:
         data = request.get_json(force=True)
-        logger.info(f"Incoming update: {data.get('update_id')}")
+        update_id = data.get('update_id')
+        print(f"DEBUG: Incoming update received: {update_id}", flush=True)
         update = Update.de_json(data, application.bot)
         
         # Передаем обновление в фоновый поток
@@ -924,7 +932,7 @@ def telegram_webhook():
         
         return "OK", 200
     except Exception as e:
-        logger.exception("Webhook processing error: %s", e)
+        print(f"DEBUG: Webhook processing error: {e}", flush=True)
         return "Error", 500
 
 # Flask routes restored for UptimeRobot support
