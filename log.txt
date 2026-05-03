@@ -1,64 +1,22 @@
 
-2026-05-03T14:54:58.746001726Z ==> Deploying...
-2026-05-03T14:54:58.855420364Z ==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
-2026-05-03T14:55:15.77809129Z 2026-05-03 17:55:15,777 - root - INFO - Starting Flask server on port 10000...
-2026-05-03T14:55:16.272641817Z  * Serving Flask app 'bot'
-2026-05-03T14:55:16.272668238Z  * Debug mode: off
-2026-05-03T14:55:16.276229754Z 2026-05-03 17:55:16,276 - werkzeug - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
-2026-05-03T14:55:16.276245115Z  * Running on all addresses (0.0.0.0)
-2026-05-03T14:55:16.276248855Z  * Running on http://127.0.0.1:10000
-2026-05-03T14:55:16.276252035Z  * Running on http://10.196.75.161:10000
-2026-05-03T14:55:16.276284786Z 2026-05-03 17:55:16,276 - werkzeug - INFO - Press CTRL+C to quit
-2026-05-03T14:55:16.307212965Z 2026-05-03 17:55:16,307 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:55:16] "HEAD / HTTP/1.1" 200 -
-2026-05-03T14:55:16.756037441Z 2026-05-03 17:55:16,755 - apscheduler.scheduler - INFO - Scheduler started
-2026-05-03T14:55:16.756095122Z 2026-05-03 17:55:16,756 - telegram.ext.Application - INFO - Application started
-2026-05-03T14:55:16.931585207Z 2026-05-03 17:55:16,931 - root - INFO - Webhook registered: https://chatgpt-telegram-service.onrender.com/webhook
-2026-05-03T14:55:16.931621717Z 2026-05-03 17:55:16,931 - root - INFO - Background asyncio loop is running.
-2026-05-03T14:55:19.550690844Z ==> Your service is live 🎉
-2026-05-03T14:55:19.614225647Z 2026-05-03 17:55:19,614 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:55:19] "GET / HTTP/1.1" 200 -
-2026-05-03T14:55:19.678039023Z ==> 
-2026-05-03T14:55:19.680881824Z ==> ///////////////////////////////////////////////////////////
-2026-05-03T14:55:19.684078251Z ==> 
-2026-05-03T14:55:19.686478994Z ==> Available at your primary URL https://chatgpt-telegram-service.onrender.com
-2026-05-03T14:55:19.68908505Z ==> 
-2026-05-03T14:55:19.692135965Z ==> ///////////////////////////////////////////////////////////
-2026-05-03T14:56:36.275185266Z 2026-05-03 17:56:36,274 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:36] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T14:56:37.635455654Z 2026-05-03 17:56:37,635 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:37] "HEAD / HTTP/1.1" 200 -
-2026-05-03T14:56:39.88519876Z 2026-05-03 17:56:39,885 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:39] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T14:56:43.121978552Z 2026-05-03 17:56:43,121 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:43] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T14:56:47.022461771Z 2026-05-03 17:56:47,022 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:47] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T14:56:47.614088622Z 2026-05-03 17:56:47,613 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:47] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T14:56:48.99239046Z 2026-05-03 17:56:48,992 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:48] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T14:56:49.875767761Z 2026-05-03 17:56:49,875 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:49] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T14:56:51.510087749Z 2026-05-03 17:56:51,509 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:51] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T14:56:53.456337975Z 2026-05-03 17:56:53,456 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:53] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T14:56:54.868468731Z 2026-05-03 17:56:54,868 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:54] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T14:56:56.212793756Z 2026-05-03 17:56:56,212 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:56] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T14:56:57.703886305Z 2026-05-03 17:56:57,703 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:56:57] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T14:57:06.470641281Z 2026-05-03 17:57:06,470 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:57:06] "POST /webhook HTTP/1.1" 200 -
-2026-05-03T14:57:06.472536842Z 2026-05-03 17:57:06,472 - apscheduler.scheduler - INFO - Added job "501851181" to job store "default"
-2026-05-03T14:57:06.956997504Z 2026-05-03 17:57:06,955 - root - WARNING - Update "Update(message=Message(channel_chat_created=False, chat=Chat(first_name='Вик Аник', id=501851181, type=<ChatType.PRIVATE>, username='anivik'), date=datetime.datetime(2026, 5, 3, 14, 57, 6, tzinfo=datetime.timezone.utc), delete_chat_photo=False, from_user=User(first_name='Вик Аник', id=501851181, is_bot=False, language_code='ru', username='anivik'), group_chat_created=False, message_id=528, supergroup_chat_created=False, text='время сейчас'), update_id=116271332)" caused error "name 'event' is not defined"
-2026-05-03T14:57:06.957056386Z 2026-05-03 17:57:06,956 - root - WARNING - Error traceback: Traceback (most recent call last):
-2026-05-03T14:57:06.957060006Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_application.py", line 1182, in __create_task_callback
-2026-05-03T14:57:06.957062776Z     return await coroutine  # type: ignore[misc]
-2026-05-03T14:57:06.957065356Z            ^^^^^^^^^^^^^^^
-2026-05-03T14:57:06.957070596Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_handlers/basehandler.py", line 159, in handle_update
-2026-05-03T14:57:06.957072606Z     return await self.callback(update, context)
-2026-05-03T14:57:06.957074536Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T14:57:06.957077626Z   File "/home/utils/decorators.py", line 102, in wrapper
-2026-05-03T14:57:06.957079566Z     return await func(*args, **kwargs)
-2026-05-03T14:57:06.957081446Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T14:57:06.957083386Z   File "/home/utils/decorators.py", line 43, in wrapper
-2026-05-03T14:57:06.957085257Z     return await func(*args, **kwargs)
-2026-05-03T14:57:06.957087186Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T14:57:06.957089097Z   File "/home/utils/decorators.py", line 29, in wrapper
-2026-05-03T14:57:06.957091067Z     return await func(*args, **kwargs)
-2026-05-03T14:57:06.957095457Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T14:57:06.957097447Z   File "/home/utils/decorators.py", line 92, in wrapper
-2026-05-03T14:57:06.957099357Z     return await func(*args, **kwargs)
-2026-05-03T14:57:06.957101247Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T14:57:06.957103177Z   File "/home/bot.py", line 160, in command_bot
-2026-05-03T14:57:06.957105197Z     event.set()
-2026-05-03T14:57:06.957107207Z     ^^^^^
-2026-05-03T14:57:06.957109387Z NameError: name 'event' is not defined
-2026-05-03T14:57:06.957111347Z 
+2026-05-03T14:57:52.527338397Z 2026-05-03 17:57:52,527 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 17:57:52] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T15:00:24.700665814Z ==> Detected service running on port 10000
+2026-05-03T15:00:24.876746886Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
+2026-05-03T15:01:43.419495921Z 2026-05-03 18:01:43,419 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 18:01:43] "HEAD / HTTP/1.1" 200 -
+2026-05-03T15:06:48.239657818Z 2026-05-03 18:06:48,239 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 18:06:48] "HEAD / HTTP/1.1" 200 -
+2026-05-03T15:07:01.470820678Z 2026-05-03 18:07:01,470 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 18:07:01] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T15:07:05.052173758Z 2026-05-03 18:07:05,051 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 18:07:05] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T15:07:14.899322841Z 2026-05-03 18:07:14,899 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 18:07:14] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T15:07:14.900232606Z 2026-05-03 18:07:14,899 - apscheduler.scheduler - INFO - Removed job d01db88a2b814c618ab9f4505efdf0c2
+2026-05-03T15:07:14.900514374Z 2026-05-03 18:07:14,900 - apscheduler.scheduler - INFO - Added job "501851181" to job store "default"
+2026-05-03T15:08:19.713019445Z 2026-05-03 18:08:19,712 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 18:08:19] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T15:08:19.713910259Z 2026-05-03 18:08:19,713 - apscheduler.scheduler - INFO - Removed job 6c8bf060d68641cc935af69977a35ad7
+2026-05-03T15:08:19.714124875Z 2026-05-03 18:08:19,714 - apscheduler.scheduler - INFO - Added job "501851181" to job store "default"
+2026-05-03T15:09:27.359400009Z 2026-05-03 18:09:27,359 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 18:09:27] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T15:09:34.46100325Z 2026-05-03 18:09:34,460 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 18:09:34] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T15:09:38.083064985Z 2026-05-03 18:09:38,082 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 18:09:38] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T15:09:40.157341346Z 2026-05-03 18:09:40,157 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 18:09:40] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T15:09:43.889892165Z 2026-05-03 18:09:43,889 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 18:09:43] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T15:09:48.349609905Z 2026-05-03 18:09:48,349 - apscheduler.scheduler - INFO - Removed job 4e36b2c5fd22433b96bc4b4f49db187f
+2026-05-03T15:09:48.350037987Z 2026-05-03 18:09:48,349 - werkzeug - INFO - 127.0.0.1 - - [03/May/2026 18:09:48] "POST /webhook HTTP/1.1" 200 -
+2026-05-03T15:09:48.350187531Z 2026-05-03 18:09:48,349 - apscheduler.scheduler - INFO - Added job "501851181" to job store "default"

@@ -909,16 +909,19 @@ def telegram_webhook():
     global application, main_loop
 
     if application is None or main_loop is None:
+        logger.error("Webhook called but application or main_loop is None")
         return "Application not ready", 503
 
     try:
         data = request.get_json(force=True)
+        logger.info(f"Incoming update: {data.get('update_id')}")
         update = Update.de_json(data, application.bot)
-        # Обработка обновления в фоновом цикле asyncio
-        asyncio.run_coroutine_threadsafe(
-            application.process_update(update),
-            main_loop
+        
+        # Передаем обновление в фоновый поток
+        main_loop.call_soon_threadsafe(
+            lambda: asyncio.create_task(application.process_update(update))
         )
+        
         return "OK", 200
     except Exception as e:
         logger.exception("Webhook processing error: %s", e)
