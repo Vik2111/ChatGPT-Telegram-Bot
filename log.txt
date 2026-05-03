@@ -1,300 +1,165 @@
-2026-05-03T13:26:22.046003964Z ==> Deploying...
-2026-05-03T13:26:22.12936391Z ==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
-2026-05-03T13:26:58.593624025Z }
-2026-05-03T13:26:58.593626955Z 
-2026-05-03T13:27:28.298256324Z ==> No open ports detected, continuing to scan...
-2026-05-03T13:27:28.381280666Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
-2026-05-03T13:28:29.056861936Z ==> No open ports detected, continuing to scan...
-2026-05-03T13:28:29.167558937Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
-2026-05-03T13:29:30.042564371Z ==> No open ports detected, continuing to scan...
-2026-05-03T13:29:30.12633458Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
-2026-05-03T13:30:31.018693274Z ==> No open ports detected, continuing to scan...
-2026-05-03T13:30:31.206093723Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
-2026-05-03T13:31:32.276526569Z ==> No open ports detected, continuing to scan...
-2026-05-03T13:31:32.358628848Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
-2026-05-03T13:31:42.577142123Z ==> Port scan timeout reached, no open ports detected. Bind your service to at least one port. If you don't need to receive traffic on any port, create a background worker instead.
-2026-05-03T13:31:42.691527901Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
-2026-05-03T13:33:34.330938423Z 
-2026-05-03T13:33:34.330968214Z {
-2026-05-03T13:33:34.330973454Z   "message": {
-2026-05-03T13:33:34.330979704Z     "channel_chat_created": false,
-2026-05-03T13:33:34.330985705Z     "delete_chat_photo": false,
-2026-05-03T13:33:34.330991215Z     "entities": [
-2026-05-03T13:33:34.330995705Z       {
-2026-05-03T13:33:34.331000115Z         "length": 6,
-2026-05-03T13:33:34.331004725Z         "offset": 0,
-2026-05-03T13:33:34.331009285Z         "type": "bot_command"
-2026-05-03T13:33:34.331013665Z       }
-2026-05-03T13:33:34.331018095Z     ],
-2026-05-03T13:33:34.331022576Z     "group_chat_created": false,
-2026-05-03T13:33:34.331026826Z     "supergroup_chat_created": false,
-2026-05-03T13:33:34.331031336Z     "text": "/start",
-2026-05-03T13:33:34.331035916Z     "chat": {
-2026-05-03T13:33:34.331040446Z       "first_name": "Вик Аник",
-2026-05-03T13:33:34.331044886Z       "id": 501851181,
-2026-05-03T13:33:34.331049276Z       "type": "private",
-2026-05-03T13:33:34.331053676Z       "username": "anivik"
-2026-05-03T13:33:34.331057816Z     },
-2026-05-03T13:33:34.331061917Z     "date": 1777815214,
-2026-05-03T13:33:34.331066237Z     "message_id": 454,
-2026-05-03T13:33:34.331070757Z     "from": {
-2026-05-03T13:33:34.331075227Z       "first_name": "Вик Аник",
-2026-05-03T13:33:34.331079627Z       "id": 501851181,
-2026-05-03T13:33:34.331084097Z       "is_bot": false,
-2026-05-03T13:33:34.331088417Z       "language_code": "ru",
-2026-05-03T13:33:34.331093197Z       "username": "anivik"
-2026-05-03T13:33:34.331097587Z     }
-2026-05-03T13:33:34.331110807Z   },
-2026-05-03T13:33:34.331114148Z   "update_id": 116271232
-2026-05-03T13:33:34.331117108Z }
-2026-05-03T13:33:34.331145998Z 
-2026-05-03T13:42:44.395737367Z              ^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:44.395739387Z   File "/usr/local/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 198, in post
-2026-05-03T13:42:44.395741787Z     result = await self._request_wrapper(
-2026-05-03T13:42:44.395743787Z              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:44.395745777Z   File "/usr/local/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 375, in _request_wrapper
-2026-05-03T13:42:44.395747697Z     raise exception
-2026-05-03T13:42:44.395749797Z telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-2026-05-03T13:42:44.395751667Z 
-2026-05-03T13:42:47.565642465Z ==> No open ports detected, continuing to scan...
-2026-05-03T13:42:47.637376779Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
-2026-05-03T13:42:49.815362726Z 2026-05-03 13:42:49,815 - root - WARNING - Update "None" caused error "Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"
-2026-05-03T13:42:49.815455248Z 2026-05-03 13:42:49,815 - root - WARNING - Error traceback: Traceback (most recent call last):
-2026-05-03T13:42:49.815464669Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 134, in network_retry_loop
-2026-05-03T13:42:49.815469929Z     await do_action()
-2026-05-03T13:42:49.815475099Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 127, in do_action
-2026-05-03T13:42:49.815479819Z     action_cb_task.result()
-2026-05-03T13:42:49.815483959Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_updater.py", line 340, in polling_action_cb
-2026-05-03T13:42:49.815488699Z     updates = await self.bot.get_updates(
-2026-05-03T13:42:49.81549282Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:49.815497129Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 676, in get_updates
-2026-05-03T13:42:49.81550125Z     updates = await super().get_updates(
-2026-05-03T13:42:49.81550541Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:49.81550958Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 4780, in get_updates
-2026-05-03T13:42:49.81551376Z     await self._post(
-2026-05-03T13:42:49.81551785Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 703, in _post
-2026-05-03T13:42:49.81553259Z     return await self._do_post(
-2026-05-03T13:42:49.81553557Z            ^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:49.81553821Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 372, in _do_post
-2026-05-03T13:42:49.815540841Z     return await super()._do_post(
-2026-05-03T13:42:49.815543361Z            ^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:49.815546281Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 732, in _do_post
-2026-05-03T13:42:49.815548931Z     result = await request.post(
-2026-05-03T13:42:49.815551471Z              ^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:49.815554031Z   File "/usr/local/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 198, in post
-2026-05-03T13:42:49.815556941Z     result = await self._request_wrapper(
-2026-05-03T13:42:49.815559651Z              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:49.815562711Z   File "/usr/local/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 375, in _request_wrapper
-2026-05-03T13:42:49.815565631Z     raise exception
-2026-05-03T13:42:49.815568621Z telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-2026-05-03T13:42:49.815570941Z 
-2026-05-03T13:42:52.233204092Z 2026-05-03 13:42:52,233 - root - WARNING - Update "None" caused error "Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"
-2026-05-03T13:42:52.233230842Z 2026-05-03 13:42:52,233 - root - WARNING - Error traceback: Traceback (most recent call last):
-2026-05-03T13:42:52.233235382Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 134, in network_retry_loop
-2026-05-03T13:42:52.233238933Z     await do_action()
-2026-05-03T13:42:52.233242293Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 127, in do_action
-2026-05-03T13:42:52.233245743Z     action_cb_task.result()
-2026-05-03T13:42:52.233248453Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_updater.py", line 340, in polling_action_cb
-2026-05-03T13:42:52.233251923Z     updates = await self.bot.get_updates(
-2026-05-03T13:42:52.233254603Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:52.233257133Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 676, in get_updates
-2026-05-03T13:42:52.233260283Z     updates = await super().get_updates(
-2026-05-03T13:42:52.233263293Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:52.233265933Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 4780, in get_updates
-2026-05-03T13:42:52.233269653Z     await self._post(
-2026-05-03T13:42:52.233272453Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 703, in _post
-2026-05-03T13:42:52.233275063Z     return await self._do_post(
-2026-05-03T13:42:52.233277823Z            ^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:52.233280583Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 372, in _do_post
-2026-05-03T13:42:52.233283074Z     return await super()._do_post(
-2026-05-03T13:42:52.233285794Z            ^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:52.233288434Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 732, in _do_post
-2026-05-03T13:42:52.233290884Z     result = await request.post(
-2026-05-03T13:42:52.233293604Z              ^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:52.233296514Z   File "/usr/local/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 198, in post
-2026-05-03T13:42:52.233299224Z     result = await self._request_wrapper(
-2026-05-03T13:42:52.233312644Z              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:52.233315504Z   File "/usr/local/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 375, in _request_wrapper
-2026-05-03T13:42:52.233318334Z     raise exception
-2026-05-03T13:42:52.233321395Z telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-2026-05-03T13:42:52.233324184Z 
-2026-05-03T13:42:55.774991218Z 2026-05-03 13:42:55,774 - root - WARNING - Update "None" caused error "Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"
-2026-05-03T13:42:55.775023199Z 2026-05-03 13:42:55,774 - root - WARNING - Error traceback: Traceback (most recent call last):
-2026-05-03T13:42:55.775033089Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 134, in network_retry_loop
-2026-05-03T13:42:55.775037399Z     await do_action()
-2026-05-03T13:42:55.775041329Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 127, in do_action
-2026-05-03T13:42:55.7750446Z     action_cb_task.result()
-2026-05-03T13:42:55.77504738Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_updater.py", line 340, in polling_action_cb
-2026-05-03T13:42:55.77505097Z     updates = await self.bot.get_updates(
-2026-05-03T13:42:55.77505426Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:55.77505648Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 676, in get_updates
-2026-05-03T13:42:55.77505844Z     updates = await super().get_updates(
-2026-05-03T13:42:55.7750611Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:55.77506483Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 4780, in get_updates
-2026-05-03T13:42:55.77506799Z     await self._post(
-2026-05-03T13:42:55.77507122Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 703, in _post
-2026-05-03T13:42:55.77507416Z     return await self._do_post(
-2026-05-03T13:42:55.77507735Z            ^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:55.77508044Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 372, in _do_post
-2026-05-03T13:42:55.775083781Z     return await super()._do_post(
-2026-05-03T13:42:55.77508675Z            ^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:55.775089451Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 732, in _do_post
-2026-05-03T13:42:55.775092531Z     result = await request.post(
-2026-05-03T13:42:55.775095731Z              ^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:55.775098491Z   File "/usr/local/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 198, in post
-2026-05-03T13:42:55.775100441Z     result = await self._request_wrapper(
-2026-05-03T13:42:55.775102451Z              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:55.775117381Z   File "/usr/local/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 375, in _request_wrapper
-2026-05-03T13:42:55.775148432Z     raise exception
-2026-05-03T13:42:55.775159672Z telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-2026-05-03T13:42:55.775162472Z 
-2026-05-03T13:42:59.3128227Z 2026-05-03 13:42:59,312 - root - WARNING - Update "None" caused error "Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"
-2026-05-03T13:42:59.312855831Z 2026-05-03 13:42:59,312 - root - WARNING - Error traceback: Traceback (most recent call last):
-2026-05-03T13:42:59.312860611Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 134, in network_retry_loop
-2026-05-03T13:42:59.312864611Z     await do_action()
-2026-05-03T13:42:59.312868372Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 127, in do_action
-2026-05-03T13:42:59.312872101Z     action_cb_task.result()
-2026-05-03T13:42:59.312875222Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_updater.py", line 340, in polling_action_cb
-2026-05-03T13:42:59.312878892Z     updates = await self.bot.get_updates(
-2026-05-03T13:42:59.312912782Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:59.312920173Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 676, in get_updates
-2026-05-03T13:42:59.312923143Z     updates = await super().get_updates(
-2026-05-03T13:42:59.312926423Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:59.312929443Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 4780, in get_updates
-2026-05-03T13:42:59.312932233Z     await self._post(
-2026-05-03T13:42:59.312935083Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 703, in _post
-2026-05-03T13:42:59.312937683Z     return await self._do_post(
-2026-05-03T13:42:59.312940333Z            ^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:59.312943053Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 372, in _do_post
-2026-05-03T13:42:59.312945763Z     return await super()._do_post(
-2026-05-03T13:42:59.312948923Z            ^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:59.312951763Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 732, in _do_post
-2026-05-03T13:42:59.312954943Z     result = await request.post(
-2026-05-03T13:42:59.312958054Z              ^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:59.312960954Z   File "/usr/local/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 198, in post
-2026-05-03T13:42:59.312962984Z     result = await self._request_wrapper(
-2026-05-03T13:42:59.312964944Z              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:42:59.312966994Z   File "/usr/local/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 375, in _request_wrapper
-2026-05-03T13:42:59.312968944Z     raise exception
-2026-05-03T13:42:59.312971134Z telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-2026-05-03T13:42:59.312973004Z 
-2026-05-03T13:43:04.866426444Z 2026-05-03 13:43:04,866 - root - WARNING - Update "None" caused error "Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"
-2026-05-03T13:43:04.866503556Z 2026-05-03 13:43:04,866 - root - WARNING - Error traceback: Traceback (most recent call last):
-2026-05-03T13:43:04.866512356Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 134, in network_retry_loop
-2026-05-03T13:43:04.866517436Z     await do_action()
-2026-05-03T13:43:04.866522786Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 127, in do_action
-2026-05-03T13:43:04.866527407Z     action_cb_task.result()
-2026-05-03T13:43:04.866531856Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_updater.py", line 340, in polling_action_cb
-2026-05-03T13:43:04.866536377Z     updates = await self.bot.get_updates(
-2026-05-03T13:43:04.866540707Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:04.866544797Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 676, in get_updates
-2026-05-03T13:43:04.866549097Z     updates = await super().get_updates(
-2026-05-03T13:43:04.866553287Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:04.866557637Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 4780, in get_updates
-2026-05-03T13:43:04.866562497Z     await self._post(
-2026-05-03T13:43:04.866567597Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 703, in _post
-2026-05-03T13:43:04.866572388Z     return await self._do_post(
-2026-05-03T13:43:04.866577077Z            ^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:04.866581728Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 372, in _do_post
-2026-05-03T13:43:04.866586328Z     return await super()._do_post(
-2026-05-03T13:43:04.866591258Z            ^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:04.866594978Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 732, in _do_post
-2026-05-03T13:43:04.866598028Z     result = await request.post(
-2026-05-03T13:43:04.866601128Z              ^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:04.866604308Z   File "/usr/local/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 198, in post
-2026-05-03T13:43:04.866607318Z     result = await self._request_wrapper(
-2026-05-03T13:43:04.866610378Z              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:04.866613849Z   File "/usr/local/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 375, in _request_wrapper
-2026-05-03T13:43:04.866616969Z     raise exception
-2026-05-03T13:43:04.866620149Z telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-2026-05-03T13:43:04.866623239Z 
-2026-05-03T13:43:10.417131079Z 2026-05-03 13:43:10,416 - root - WARNING - Update "None" caused error "Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"
-2026-05-03T13:43:10.417155559Z 2026-05-03 13:43:10,417 - root - WARNING - Error traceback: Traceback (most recent call last):
-2026-05-03T13:43:10.417161089Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 134, in network_retry_loop
-2026-05-03T13:43:10.41717683Z     await do_action()
-2026-05-03T13:43:10.41717991Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 127, in do_action
-2026-05-03T13:43:10.41718246Z     action_cb_task.result()
-2026-05-03T13:43:10.41718446Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_updater.py", line 340, in polling_action_cb
-2026-05-03T13:43:10.41718795Z     updates = await self.bot.get_updates(
-2026-05-03T13:43:10.41718989Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:10.41719188Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 676, in get_updates
-2026-05-03T13:43:10.41719383Z     updates = await super().get_updates(
-2026-05-03T13:43:10.41719579Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:10.41719778Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 4780, in get_updates
-2026-05-03T13:43:10.41719973Z     await self._post(
-2026-05-03T13:43:10.41720172Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 703, in _post
-2026-05-03T13:43:10.41720366Z     return await self._do_post(
-2026-05-03T13:43:10.4172056Z            ^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:10.417207611Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 372, in _do_post
-2026-05-03T13:43:10.41720964Z     return await super()._do_post(
-2026-05-03T13:43:10.41721166Z            ^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:10.417213601Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 732, in _do_post
-2026-05-03T13:43:10.417215581Z     result = await request.post(
-2026-05-03T13:43:10.417217511Z              ^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:10.417219451Z   File "/usr/local/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 198, in post
-2026-05-03T13:43:10.417221411Z     result = await self._request_wrapper(
-2026-05-03T13:43:10.417223381Z              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:10.417225401Z   File "/usr/local/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 375, in _request_wrapper
-2026-05-03T13:43:10.417227341Z     raise exception
-2026-05-03T13:43:10.417229411Z telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-2026-05-03T13:43:10.417231261Z 
-2026-05-03T13:43:18.510225946Z 2026-05-03 13:43:18,510 - root - WARNING - Update "None" caused error "Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"
-2026-05-03T13:43:18.510473221Z 2026-05-03 13:43:18,510 - root - WARNING - Error traceback: Traceback (most recent call last):
-2026-05-03T13:43:18.510483371Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 134, in network_retry_loop
-2026-05-03T13:43:18.510501502Z     await do_action()
-2026-05-03T13:43:18.510504982Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 127, in do_action
-2026-05-03T13:43:18.510508242Z     action_cb_task.result()
-2026-05-03T13:43:18.510510792Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_updater.py", line 340, in polling_action_cb
-2026-05-03T13:43:18.510513872Z     updates = await self.bot.get_updates(
-2026-05-03T13:43:18.510516472Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:18.510635015Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 676, in get_updates
-2026-05-03T13:43:18.510639275Z     updates = await super().get_updates(
-2026-05-03T13:43:18.510642075Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:18.510645345Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 4780, in get_updates
-2026-05-03T13:43:18.510648145Z     await self._post(
-2026-05-03T13:43:18.510650705Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 703, in _post
-2026-05-03T13:43:18.510653545Z     return await self._do_post(
-2026-05-03T13:43:18.510656036Z            ^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:18.510658485Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 372, in _do_post
-2026-05-03T13:43:18.510661105Z     return await super()._do_post(
-2026-05-03T13:43:18.510663676Z            ^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:18.510666426Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 732, in _do_post
-2026-05-03T13:43:18.510744858Z     result = await request.post(
-2026-05-03T13:43:18.510748887Z              ^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:18.510751728Z   File "/usr/local/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 198, in post
-2026-05-03T13:43:18.510754568Z     result = await self._request_wrapper(
-2026-05-03T13:43:18.510757198Z              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:18.510759818Z   File "/usr/local/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 375, in _request_wrapper
-2026-05-03T13:43:18.510762668Z     raise exception
-2026-05-03T13:43:18.510765718Z telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-2026-05-03T13:43:18.510768188Z 
-2026-05-03T13:43:26.600854119Z 2026-05-03 13:43:26,600 - root - WARNING - Update "None" caused error "Conflict: terminated by other getUpdates request; make sure that only one bot instance is running"
-2026-05-03T13:43:26.600913141Z 2026-05-03 13:43:26,600 - root - WARNING - Error traceback: Traceback (most recent call last):
-2026-05-03T13:43:26.600921191Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 134, in network_retry_loop
-2026-05-03T13:43:26.600926601Z     await do_action()
-2026-05-03T13:43:26.600933881Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 127, in do_action
-2026-05-03T13:43:26.600940571Z     action_cb_task.result()
-2026-05-03T13:43:26.600946231Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_updater.py", line 340, in polling_action_cb
-2026-05-03T13:43:26.600953091Z     updates = await self.bot.get_updates(
-2026-05-03T13:43:26.600958422Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:26.600962372Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 676, in get_updates
-2026-05-03T13:43:26.600966762Z     updates = await super().get_updates(
-2026-05-03T13:43:26.600970592Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:26.600974382Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 4780, in get_updates
-2026-05-03T13:43:26.600993872Z     await self._post(
-2026-05-03T13:43:26.600996883Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 703, in _post
-2026-05-03T13:43:26.600999312Z     return await self._do_post(
-2026-05-03T13:43:26.601001712Z            ^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:26.601004153Z   File "/usr/local/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 372, in _do_post
-2026-05-03T13:43:26.601006523Z     return await super()._do_post(
-2026-05-03T13:43:26.601009003Z            ^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:26.601011383Z   File "/usr/local/lib/python3.11/site-packages/telegram/_bot.py", line 732, in _do_post
-2026-05-03T13:43:26.601013953Z     result = await request.post(
-2026-05-03T13:43:26.601016383Z              ^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:26.601018783Z   File "/usr/local/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 198, in post
-2026-05-03T13:43:26.601021203Z     result = await self._request_wrapper(
-2026-05-03T13:43:26.601023573Z              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-2026-05-03T13:43:26.601026013Z   File "/usr/local/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 375, in _request_wrapper
-2026-05-03T13:43:26.601028423Z     raise exception
-2026-05-03T13:43:26.601030873Z telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
-2026-05-03T13:43:26.601033203Z 
+2026-05-03T14:25:22.149146305Z ==> Deploying...
+2026-05-03T14:25:22.218107684Z ==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
+2026-05-03T14:26:16.332112855Z 2026-05-03 17:26:16,331 - apscheduler.scheduler - INFO - Scheduler started
+2026-05-03T14:26:16.332216251Z 2026-05-03 17:26:16,332 - telegram.ext.Application - INFO - Application started
+2026-05-03T14:26:28.979215317Z ==> No open ports detected, continuing to scan...
+2026-05-03T14:26:29.051505417Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
+2026-05-03T14:27:29.615133701Z ==> No open ports detected, continuing to scan...
+2026-05-03T14:27:29.690664325Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
+2026-05-03T14:28:13.679791759Z 2026-05-03 17:28:13,679 - apscheduler.scheduler - INFO - Added job "501851181" to job store "default"
+2026-05-03T14:28:14.191988127Z 2026-05-03 17:28:14,191 - chatgpt_default - INFO - Request Body:
+2026-05-03T14:28:14.192010588Z {
+2026-05-03T14:28:14.192016458Z     "model": "gpt-4.1",
+2026-05-03T14:28:14.192020859Z     "messages": [
+2026-05-03T14:28:14.192025129Z         {
+2026-05-03T14:28:14.192029789Z             "role": "system",
+2026-05-03T14:28:14.19203441Z             "content": "Respond conversationally in Russian. Current date: [ 2026-05-03 ]"
+2026-05-03T14:28:14.19203928Z         },
+2026-05-03T14:28:14.19204329Z         {
+2026-05-03T14:28:14.1920473Z             "role": "user",
+2026-05-03T14:28:14.19205196Z             "content": "время?"
+2026-05-03T14:28:14.192056011Z         }
+2026-05-03T14:28:14.192060151Z     ],
+2026-05-03T14:28:14.192064181Z     "stream": true,
+2026-05-03T14:28:14.192068941Z     "temperature": 0.5,
+2026-05-03T14:28:14.192073252Z     "tool_choice": "auto",
+2026-05-03T14:28:14.192077612Z     "tools": [
+2026-05-03T14:28:14.192081742Z         {
+2026-05-03T14:28:14.192086113Z             "type": "function",
+2026-05-03T14:28:14.192090523Z             "function": {
+2026-05-03T14:28:14.192094873Z                 "name": "get_time",
+2026-05-03T14:28:14.192099653Z                 "description": "\n    获取当前日期时间及星期几\n\n    返回:\n        包含当前日期时间及星期几的字符串\n    "
+2026-05-03T14:28:14.192103903Z             }
+2026-05-03T14:28:14.192108094Z         },
+2026-05-03T14:28:14.192112494Z         {
+2026-05-03T14:28:14.192117044Z             "type": "function",
+2026-05-03T14:28:14.192121295Z             "function": {
+2026-05-03T14:28:14.192125415Z                 "name": "get_url_content",
+2026-05-03T14:28:14.192130275Z                 "description": "\n获取 url 的网页内容，以 markdown 格式返回给用户\n\n:param url: 要爬取的网页URL\n:return: 网页内容\n    ",
+2026-05-03T14:28:14.192134535Z                 "parameters": {
+2026-05-03T14:28:14.192138765Z                     "type": "object",
+2026-05-03T14:28:14.192143066Z                     "properties": {
+2026-05-03T14:28:14.192147196Z                         "url": {
+2026-05-03T14:28:14.192151166Z                             "type": "string"
+2026-05-03T14:28:14.192155306Z                         }
+2026-05-03T14:28:14.192159447Z                     },
+2026-05-03T14:28:14.192163637Z                     "required": [
+2026-05-03T14:28:14.192167727Z                         "url"
+2026-05-03T14:28:14.192172378Z                     ]
+2026-05-03T14:28:14.192176868Z                 }
+2026-05-03T14:28:14.192181048Z             }
+2026-05-03T14:28:14.192185408Z         },
+2026-05-03T14:28:14.19220819Z         {
+2026-05-03T14:28:14.19221245Z             "type": "function",
+2026-05-03T14:28:14.19221673Z             "function": {
+2026-05-03T14:28:14.19222089Z                 "name": "get_search_results",
+2026-05-03T14:28:14.192228261Z                 "description": "\n    执行网络搜索并返回搜索结果文本\n\n    参数:\n        query: 查询语句，包含用户想要搜索的内容\n\n    返回:\n        异步生成器，依次产生:\n        - 搜索状态消息 (\"message_search_stage_2\", \"message_search_stage_3\", \"message_search_stage_4\")\n        - 最终的搜索结果文本列表\n\n    说明:\n        - 根据查询语句自动搜索结果\n        - 使用多线程并行抓取网页内容\n        - 在搜索过程中通过yield返回状态更新\n    ",
+2026-05-03T14:28:14.192251262Z                 "parameters": {
+2026-05-03T14:28:14.192254422Z                     "type": "object",
+2026-05-03T14:28:14.192259123Z                     "properties": {
+2026-05-03T14:28:14.192262023Z                         "query": {
+2026-05-03T14:28:14.192264693Z                             "type": "string"
+2026-05-03T14:28:14.192267223Z                         }
+2026-05-03T14:28:14.192269643Z                     },
+2026-05-03T14:28:14.192272143Z                     "required": [
+2026-05-03T14:28:14.192274653Z                         "query"
+2026-05-03T14:28:14.192277094Z                     ]
+2026-05-03T14:28:14.192279594Z                 }
+2026-05-03T14:28:14.192282064Z             }
+2026-05-03T14:28:14.192284694Z         }
+2026-05-03T14:28:14.192287264Z     ],
+2026-05-03T14:28:14.192289994Z     "stream_options": {
+2026-05-03T14:28:14.192292694Z         "include_usage": true
+2026-05-03T14:28:14.192295475Z     }
+2026-05-03T14:28:14.192298045Z }
+2026-05-03T14:28:15.741986231Z 2026-05-03 17:28:15,741 - chatgpt_default - INFO - total_tokens: 260
+2026-05-03T14:28:15.742028164Z 2026-05-03 17:28:15,741 - chatgpt_default - INFO - function_full_response: {}
+2026-05-03T14:28:15.74213794Z 2026-05-03 17:28:15,742 - chatgpt_default - INFO - Tool use, calling: get_time
+2026-05-03T14:28:15.819524034Z 2026-05-03 17:28:15,819 - chatgpt_default - INFO - Request Body:
+2026-05-03T14:28:15.819552896Z {
+2026-05-03T14:28:15.819557946Z     "model": "gpt-4.1",
+2026-05-03T14:28:15.819561206Z     "messages": [
+2026-05-03T14:28:15.819564256Z         {
+2026-05-03T14:28:15.819567757Z             "role": "system",
+2026-05-03T14:28:15.819571327Z             "content": "Respond conversationally in Russian. Current date: [ 2026-05-03 ]"
+2026-05-03T14:28:15.819574597Z         },
+2026-05-03T14:28:15.819577447Z         {
+2026-05-03T14:28:15.819580377Z             "role": "user",
+2026-05-03T14:28:15.819584068Z             "content": "время?"
+2026-05-03T14:28:15.819587468Z         },
+2026-05-03T14:28:15.819590518Z         {
+2026-05-03T14:28:15.819593488Z             "role": "assistant",
+2026-05-03T14:28:15.819596418Z             "tool_calls": [
+2026-05-03T14:28:15.819599599Z                 {
+2026-05-03T14:28:15.819602639Z                     "id": "get_time_single",
+2026-05-03T14:28:15.819606019Z                     "type": "function",
+2026-05-03T14:28:15.819609229Z                     "function": {
+2026-05-03T14:28:15.819612519Z                         "name": "get_time",
+2026-05-03T14:28:15.81961487Z                         "arguments": "{}"
+2026-05-03T14:28:15.81961693Z                     }
+2026-05-03T14:28:15.81961893Z                 }
+2026-05-03T14:28:15.81962089Z             ]
+2026-05-03T14:28:15.81962289Z         },
+2026-05-03T14:28:15.81962491Z         {
+2026-05-03T14:28:15.81962692Z             "role": "tool",
+2026-05-03T14:28:15.8196289Z             "tool_call_id": "get_time_single",
+2026-05-03T14:28:15.819630991Z             "content": "今天是：2026-05-03，现在的时间是：22:28:15，星期日"
+2026-05-03T14:28:15.819632991Z         }
+2026-05-03T14:28:15.819634961Z     ],
+2026-05-03T14:28:15.819637051Z     "stream": true,
+2026-05-03T14:28:15.819639051Z     "temperature": 0.5,
+2026-05-03T14:28:15.819640991Z     "tool_choice": "auto",
+2026-05-03T14:28:15.819645481Z     "tools": [
+2026-05-03T14:28:15.819647581Z         {
+2026-05-03T14:28:15.819649641Z             "type": "function",
+2026-05-03T14:28:15.819666422Z             "function": {
+2026-05-03T14:28:15.819668553Z                 "name": "get_time",
+2026-05-03T14:28:15.819672673Z                 "description": "\n    获取当前日期时间及星期几\n\n    返回:\n        包含当前日期时间及星期几的字符串\n    "
+2026-05-03T14:28:15.819674713Z             }
+2026-05-03T14:28:15.819676713Z         },
+2026-05-03T14:28:15.819678663Z         {
+2026-05-03T14:28:15.819680643Z             "type": "function",
+2026-05-03T14:28:15.819682623Z             "function": {
+2026-05-03T14:28:15.819684594Z                 "name": "get_url_content",
+2026-05-03T14:28:15.819687314Z                 "description": "\n获取 url 的网页内容，以 markdown 格式返回给用户\n\n:param url: 要爬取的网页URL\n:return: 网页内容\n    ",
+2026-05-03T14:28:15.819689374Z                 "parameters": {
+2026-05-03T14:28:15.819691364Z                     "type": "object",
+2026-05-03T14:28:15.819693294Z                     "properties": {
+2026-05-03T14:28:15.819695264Z                         "url": {
+2026-05-03T14:28:15.819697194Z                             "type": "string"
+2026-05-03T14:28:15.819699135Z                         }
+2026-05-03T14:28:15.819701104Z                     },
+2026-05-03T14:28:15.819704315Z                     "required": [
+2026-05-03T14:28:15.819707725Z                         "url"
+2026-05-03T14:28:15.819711285Z                     ]
+2026-05-03T14:28:15.819714675Z                 }
+2026-05-03T14:28:15.819718005Z             }
+2026-05-03T14:28:15.819721266Z         },
+2026-05-03T14:28:15.819724706Z         {
+2026-05-03T14:28:15.819728226Z             "type": "function",
+2026-05-03T14:28:15.819730216Z             "function": {
+2026-05-03T14:28:15.819732216Z                 "name": "get_search_results",
+2026-05-03T14:28:15.819735037Z                 "description": "\n    执行网络搜索并返回搜索结果文本\n\n    参数:\n        query: 查询语句，包含用户想要搜索的内容\n\n    返回:\n        异步生成器，依次产生:\n        - 搜索状态消息 (\"message_search_stage_2\", \"message_search_stage_3\", \"message_search_stage_4\")\n        - 最终的搜索结果文本列表\n\n    说明:\n        - 根据查询语句自动搜索结果\n        - 使用多线程并行抓取网页内容\n        - 在搜索过程中通过yield返回状态更新\n    ",
+2026-05-03T14:28:15.819737077Z                 "parameters": {
+2026-05-03T14:28:15.819739047Z                     "type": "object",
+2026-05-03T14:28:15.819740977Z                     "properties": {
+2026-05-03T14:28:15.819742987Z                         "query": {
+2026-05-03T14:28:15.819744937Z                             "type": "string"
+2026-05-03T14:28:15.819746907Z                         }
+2026-05-03T14:28:15.819748907Z                     },
+2026-05-03T14:28:15.819750887Z                     "required": [
+2026-05-03T14:28:15.819752878Z                         "query"
+2026-05-03T14:28:15.819754848Z                     ]
+2026-05-03T14:28:15.819756798Z                 }
+2026-05-03T14:28:15.819758758Z             }
+2026-05-03T14:28:15.819760708Z         }
+2026-05-03T14:28:15.819762678Z     ],
+2026-05-03T14:28:15.819764688Z     "stream_options": {
+2026-05-03T14:28:15.819766678Z         "include_usage": true
+2026-05-03T14:28:15.819768648Z     }
+2026-05-03T14:28:15.819770648Z }
+2026-05-03T14:28:16.826463561Z 2026-05-03 17:28:16,826 - chatgpt_default - INFO - total_tokens: 260
+2026-05-03T14:28:30.276375201Z ==> No open ports detected, continuing to scan...
+2026-05-03T14:28:30.356077245Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
+2026-05-03T14:29:32.504128453Z ==> No open ports detected, continuing to scan...
+2026-05-03T14:29:32.616135853Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding

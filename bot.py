@@ -47,6 +47,7 @@ from datetime import timedelta
 
 import asyncio
 import os
+import threading
 from flask import Flask, request
 lock = asyncio.Lock()
 stop_event = asyncio.Event()
@@ -991,20 +992,34 @@ if __name__ == '__main__':
     main_loop = asyncio.new_event_loop()
     asyncio.set_event_loop(main_loop)
     
-    # Запуск инфраструктуры бота
-    main_loop.run_until_complete(application.initialize())
-    main_loop.run_until_complete(application.start())
+    # Запуск бота через Flask (поддержка UptimeRobot и Render)
+    port = int(os.getenv("PORT", PORT))
+    
+    # Создаем и настраиваем цикл событий
+    main_loop = asyncio.new_event_loop()
+    
+    def start_background_loop(loop):
+        asyncio.set_event_loop(loop)
+        # Инициализация и запуск приложения внутри цикла
+        loop.run_until_complete(application.initialize())
+        loop.run_until_complete(application.start())
+        
+        # Автоматическая настройка вебхука
+        render_url = os.getenv("RENDER_EXTERNAL_URL")
+        webhook_base_url = WEB_HOOK or render_url
+        if webhook_base_url:
+            if not webhook_base_url.startswith("http"):
+                webhook_base_url = f"https://{webhook_base_url}"
+            webhook_url = f"{webhook_base_url.rstrip('/')}/webhook"
+            loop.run_until_complete(application.bot.set_webhook(url=webhook_url, drop_pending_updates=True))
+            logger.info(f"Webhook registered: {webhook_url}")
+            
+        logger.info("Background asyncio loop is running.")
+        loop.run_forever()
 
-    # Автоматическая настройка вебхука
-    render_url = os.getenv("RENDER_EXTERNAL_URL")
-    webhook_base_url = WEB_HOOK or render_url
-    if webhook_base_url:
-        if not webhook_base_url.startswith("http"):
-            webhook_base_url = f"https://{webhook_base_url}"
-        webhook_url = f"{webhook_base_url.rstrip('/')}/webhook"
-        main_loop.run_until_complete(application.bot.set_webhook(url=webhook_url, drop_pending_updates=True))
-        logger.info(f"Webhook registered: {webhook_url}")
+    # Запускаем цикл в отдельном потоке
+    t = threading.Thread(target=start_background_loop, args=(main_loop,), daemon=True)
+    t.start()
 
     logger.info(f"Starting Flask server on port {port}...")
-    # Flask будет слушать порт и отвечать на запросы / и /webhook
     flask_app.run(host="0.0.0.0", port=port)
