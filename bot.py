@@ -46,10 +46,15 @@ from telegram.ext import CommandHandler, MessageHandler, ApplicationBuilder, fil
 from datetime import timedelta
 
 import asyncio
+import os
+from flask import Flask, request
 lock = asyncio.Lock()
 event = asyncio.Event()
 stop_event = asyncio.Event()
 time_out = 600
+
+flask_app = Flask(__name__)
+application = None
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger()
@@ -891,7 +896,33 @@ async def post_init(application: Application) -> None:
         "I am an Assistant, a large language model trained by OpenAI. I will do my best to help answer your questions."
     )
     await application.bot.set_my_description(description)
+@flask_app.get("/")
+def health():
+    return "OK", 200
 
+
+@flask_app.post("/webhook")
+def telegram_webhook():
+    global application
+
+    if application is None:
+        return "Application not ready", 503
+
+    try:
+        data = request.get_json(force=True)
+        update = Update.de_json(data, application.bot)
+
+        async def process():
+            await application.initialize()
+            await application.start()
+            await application.process_update(update)
+
+        asyncio.run(process())
+        return "OK", 200
+    except Exception as e:
+        logger.exception("Webhook processing error: %s", e)
+        return "Error", 500
+        
 if __name__ == '__main__':
     application = (
         ApplicationBuilder()
@@ -953,10 +984,6 @@ if __name__ == '__main__':
     application.add_error_handler(error)
 
     print("WEB_HOOK:", WEB_HOOK)
-    application.run_webhook(
-        listen="0.0.0.0",
-        port=int(PORT),
-        webhook_url=WEB_HOOK,
-        url_path="webhook",
-    )
+    print("PORT:", PORT)
 
+    flask_app.run(host="0.0.0.0", port=int(os.getenv("PORT", PORT)))
