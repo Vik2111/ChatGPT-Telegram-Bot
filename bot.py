@@ -925,10 +925,19 @@ def telegram_webhook():
         print(f"DEBUG: Incoming update received: {update_id}", flush=True)
         update = Update.de_json(data, application.bot)
         
-        # Передаем обновление в фоновый поток
-        main_loop.call_soon_threadsafe(
-            lambda: asyncio.create_task(application.process_update(update))
-        )
+        def handle_result(task):
+            try:
+                task.result()
+            except Exception as e:
+                print(f"DEBUG: Error in background task: {e}", flush=True)
+                traceback.print_exc()
+
+        # Передаем обновление в фоновый поток с отслеживанием ошибок
+        def schedule():
+            task = asyncio.create_task(application.process_update(update))
+            task.add_done_callback(handle_result)
+            
+        main_loop.call_soon_threadsafe(schedule)
         
         return "OK", 200
     except Exception as e:
