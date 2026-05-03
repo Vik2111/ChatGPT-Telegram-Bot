@@ -49,7 +49,6 @@ import asyncio
 import os
 from flask import Flask, request
 lock = asyncio.Lock()
-event = asyncio.Event()
 stop_event = asyncio.Event()
 time_out = 600
 
@@ -897,35 +896,10 @@ async def post_init(application: Application) -> None:
         "I am an Assistant, a large language model trained by OpenAI. I will do my best to help answer your questions."
     )
     await application.bot.set_my_description(description)
+
 @flask_app.get("/")
 def health():
-    return "OK", 200
-
-
-@flask_app.post("/webhook")
-def telegram_webhook():
-    global application
-
-    if application is None:
-        return "Application not ready", 503
-
-    try:
-        data = request.get_json(force=True)
-        update = Update.de_json(data, application.bot)
-
-        async def process():
-            await application.initialize()
-            await application.start()
-            await application.process_update(update)
-
-        asyncio.run(process())
-        return "OK", 200
-    except Exception as e:
-        logger.exception("Webhook processing error: %s", e)
-        return "Error", 500
-@flask_app.get("/")
-def health():
-    return "OK", 200
+    return "Бот работает! / Bot is running!", 200
 
 
 @flask_app.post("/webhook")
@@ -938,15 +912,17 @@ def telegram_webhook():
     try:
         data = request.get_json(force=True)
         update = Update.de_json(data, application.bot)
-        future = asyncio.run_coroutine_threadsafe(
+        # Обработка обновления в фоновом цикле asyncio
+        asyncio.run_coroutine_threadsafe(
             application.process_update(update),
             main_loop
         )
-        future.result(timeout=30)
         return "OK", 200
     except Exception as e:
         logger.exception("Webhook processing error: %s", e)
         return "Error", 500
+
+# Flask routes restored for UptimeRobot support
         
 if __name__ == '__main__':
     application = (
@@ -1006,16 +982,29 @@ if __name__ == '__main__':
         filters.Document.FileExtension("wav"),
         handle_file
     ))
-    application.add_handler(MessageHandler(filters.COMMAND, unknown))
     application.add_error_handler(error)
 
+    # Запуск бота через Flask (поддержка UptimeRobot и Render)
+    port = int(os.getenv("PORT", PORT))
+    
+    # Инициализация цикла событий для фоновой работы бота
     main_loop = asyncio.new_event_loop()
     asyncio.set_event_loop(main_loop)
-
+    
+    # Запуск инфраструктуры бота
     main_loop.run_until_complete(application.initialize())
     main_loop.run_until_complete(application.start())
 
-    print("WEB_HOOK:", WEB_HOOK)
-    print("PORT:", os.getenv("PORT", PORT))
+    # Автоматическая настройка вебхука
+    render_url = os.getenv("RENDER_EXTERNAL_URL")
+    webhook_base_url = WEB_HOOK or render_url
+    if webhook_base_url:
+        if not webhook_base_url.startswith("http"):
+            webhook_base_url = f"https://{webhook_base_url}"
+        webhook_url = f"{webhook_base_url.rstrip('/')}/webhook"
+        main_loop.run_until_complete(application.bot.set_webhook(url=webhook_url, drop_pending_updates=True))
+        logger.info(f"Webhook registered: {webhook_url}")
 
-    flask_app.run(host="0.0.0.0", port=int(os.getenv("PORT", PORT)))
+    logger.info(f"Starting Flask server on port {port}...")
+    # Flask будет слушать порт и отвечать на запросы / и /webhook
+    flask_app.run(host="0.0.0.0", port=port)

@@ -1,0 +1,140 @@
+У тебя сейчас запущен Telegram-бот как Web Service, но Render не видит, что приложение слушает HTTP‑порт, поэтому деплой «красный».
+​-
+Если же принципиально хочешь оставить именно Web Service, тогда нужно:
+Либо переписать бота на webhook‑режим и поднять HTTP‑сервер (например, aiohttp/fastapi/flask), который слушает PORT из переменной окружения и отвечает на запросы Telegram.
+​
+Либо в команду запуска добавить какой‑то простой HTTP‑сервер, который слушает PORT, параллельно с ботом, чтобы Render увидел открытый порт (но это костыль).
+​Напиши, ты хочешь оставить long polling или переходить на webhook – могу дать готовый пример bot.py и Procfile/команды именно под Render.
+============
+вот начало моего бота
+что нужно добавить?
+куда вставить или вместо чего?
+сделай формат
+было - стало
+==========
+Ничего в середине бота менять не нужно, нужно только «обёртку» вокруг main() под Render‑Web Service (webhook + HTTP‑сервер).
+Ниже — вариант «было → стало» только для самого низа файла.
+Что ещё нужно сделать в Render (кратко):
+Тип сервиса оставить Web Service, старт‑команда остаётся python bot.py (или как у тебя).
+В Environment добавить секреты TOKEN (если ещё не), Render сам подставит PORT и RENDER_EXTERNAL_URL.
+Если хочешь оставить именно run_polling без вебхука, пиши — сделаем вариант «стало» под Background Worker, там код ещё проще.
+========
+посмотри в логах в чем проблема и подскажи что делать
+Основная проблема сейчас не в коде бота, а в том, как мы его запускаем: ты вызываешь asyncio.run(app.run_webhook(...)) (через свою обёртку), а внутри python-telegram-bot тоже создаёт и управляет своим event loop, в итоге asyncio ругается: «Этот цикл событий уже запущен / Невозможно закрыть запущенный цикл событий».
+​
+Сделаем проще и безопаснее: вообще уберём свой asyncio.run(...) и будем вызывать app.run_webhook(...) напрямую (она сама всё организует).
+Ниже только кусок «было → стало» для main() и entry point.
+Было
+==============
+-----------------------------
+def main() -> None:
+    """Основная функция запуска бота в режиме webhook на Render"""
+    try:
+        app = Application.builder().token(TOKEN).build()
+        app.add_handler(CommandHandler("start", start))
+        app.add_handler(CommandHandler("clear", clear_list))
+        app.add_handler(CallbackQueryHandler(button_handler))
+        logger.info("=" * 50)
+        logger.info("Бот для составления списков покупок успешно запущен (в режиме веб-перехватчика)!")
+        logger.info(f"Авторизованные пользователи: {ALLOWED_USERS}")
+        logger.info(f"Загружено категорий: {len(PRODUCT_CATEGORIES)}")
+        logger.info("=" * 50)
+        render_url = os.getenv("RENDER_EXTERNAL_URL")
+        if not render_url:
+            raise RuntimeError("RENDER_EXTERNAL_URL is not set")
+        port = int(os.getenv("PORT", "10000"))
+        webhook_path = "/webhook"
+        webhook_url = f"{render_url}{webhook_path}"
+        logger.info(f"Используется URL веб-перехватчика: {webhook_url} на порту {port}")
+        async def run():
+            await app.bot.delete_webhook()
+            await app.bot.set_webhook(url=webhook_url)
+            await app.run_webhook(
+                listen="0.0.0.0",
+                port=port,
+                url_path=webhook_path,
+                webhook_url=webhook_url,
+                allowed_updates=Update.ALL_TYPES,
+                drop_pending_updates=True,
+            )
+        import asyncio
+        asyncio.run(run())
+    except Exception as e:
+        logger.error(f"Не удалось запустить бота: {e}")
+        raise
+if __name__ == "__main__":
+    main()
+=========
+Стало
+-----------------
+def main() -> None:
+    """Основная функция запуска бота в режиме webhook на Render"""
+    try:
+        app = Application.builder().token(TOKEN).build()
+        app.add_handler(CommandHandler("start", start))
+        app.add_handler(CommandHandler("clear", clear_list))
+        app.add_handler(CallbackQueryHandler(button_handler))
+        logger.info("=" * 50)
+        logger.info("Бот для составления списков покупок успешно запущен (в режиме веб-перехватчика)!")
+        logger.info(f"Авторизованные пользователи: {ALLOWED_USERS}")
+        logger.info(f"Загружено категорий: {len(PRODUCT_CATEGORIES)}")
+        logger.info("=" * 50)
+          Render webhook config 
+        render_url = os.getenv("RENDER_EXTERNAL_URL")
+        if not render_url:
+            raise RuntimeError("RENDER_EXTERNAL_URL is not set")
+        port = int(os.getenv("PORT", "10000"))
+        webhook_path = "/webhook"
+        webhook_url = f"{render_url}{webhook_path}"
+        logger.info(f"Используется URL веб-перехватчика: {webhook_url} на порту {port}")
+         ВАЖНО: вызываем run_webhook напрямую, БЕЗ asyncio.run(...)
+        app.run_webhook(
+            listen="0.0.0.0",
+            port=port,
+            url_path=webhook_path,
+            webhook_url=webhook_url,
+            allowed_updates=Update.ALL_TYPES,
+            drop_pending_updates=True,
+        )
+    except Exception as e:
+        logger.error(f"Не удалось запустить бота: {e}")
+        raise
+if __name__ == "__main__":
+    main()
+Что проверить после правки:
+В requirements.txt стоит python-telegram-bot>=20 (у тебя 22.6 — ок).
+​
+В Render:
+Тип сервиса: Web Service.
+Start command: python bot.py.
+В Env заданы TOKEN и, если нужно, твои кастомные переменные; PORT и RENDER_EXTERNAL_URL Render проставляет сам.
+Если после этого будет новый трейс — пришли его, посмотрим следующий шаг.
+========
+снова ошибка
+смотри логи
+что делать
+=========
+Сейчас бот падает, потому что python-telegram-bot собран без поддержки webhook, а run_webhook требует установку с extra [webhooks].
+​
+Что именно не так
+В логах явная ошибка:
+RuntimeError: Для использования start_webhook необходимо установить PTB с помощью pip install "python-telegram-bot[webhooks]".
+​
+Ты ставишь просто python-telegram-bot==22.6, без extras.
+​
+Что сделать
+Открой requirements.txt в репозитории render_produkti_26_01.
+​
+Замени строку:
+Было
+text
+python-telegram-bot==22.6
+Стало
+text
+python-telegram-bot[webhooks]==22.6
+Закоммить и запушь изменения в main на GitHub.
+​
+В Render нажми Manual Deploy → Deploy latest commit для этого Web Service.
+​
+После этого PTB подтянет зависимости для webhook (http сервер, TLS и т.п.), и вызов app.run_webhook(...) перестанет падать.
+Если после обновления зависимостей снова будет ошибка в логах — пришли новый фрагмент, продолжим.

@@ -27,7 +27,7 @@ MODEL = os.environ.get('MODEL', 'gpt-5')
 
 WEB_HOOK = os.environ.get('WEB_HOOK', None)
 CHAT_MODE = os.environ.get('CHAT_MODE', "global")
-GET_MODELS = (os.environ.get('GET_MODELS', "True") == "False") == False
+GET_MODELS = (os.environ.get('GET_MODELS', "False") == "True")
 
 PASS_HISTORY = os.environ.get('PASS_HISTORY', 9999)
 if type(PASS_HISTORY) == str:
